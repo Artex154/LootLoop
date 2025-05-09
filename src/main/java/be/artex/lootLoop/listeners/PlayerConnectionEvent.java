@@ -12,7 +12,7 @@ public class PlayerConnectionEvent implements Listener {
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
         event.joinMessage(Component.text("[", NamedTextColor.DARK_GRAY)
-                .append(Component.text("-", TextColor.color(50, 210, 50)))
+                .append(Component.text("+", TextColor.color(50, 210, 50)))
                 .append(Component.text("] ", NamedTextColor.DARK_GRAY))
                 .append(Component.text("Artex54")));
     }
