@@ -1,6 +1,7 @@
 package be.artex.lootLoop.scoreboard;
 
 import be.artex.lootLoop.Statistics;
+import be.artex.lootLoop.commands.Sell;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -15,7 +16,7 @@ public class Scoreboard {
     public static void updateBoard(FastBoard board, Player player) {
         PersistentDataContainer playerPDC = player.getPersistentDataContainer();
         int minedBlocks = playerPDC.get(Statistics.MINED_BLOCS, PersistentDataType.INTEGER);
-        int money = playerPDC.get(Statistics.MONEY, PersistentDataType.INTEGER);
+        String money = Sell.formatNumber(playerPDC.get(Statistics.MONEY, PersistentDataType.INTEGER));
 
         board.updateLines(
                 Component.text("          ", TextColor.color(60, 60, 60)).decorate(TextDecoration.STRIKETHROUGH).append(

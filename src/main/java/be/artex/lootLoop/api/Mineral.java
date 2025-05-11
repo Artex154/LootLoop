@@ -44,4 +44,18 @@ public abstract class Mineral {
 
         return event;
     }
+
+    public static Event generateEvent(Mineral mineral, float lootnum) {
+        Event event = null;
+
+        for (Event e : mineral.getEvents()) {
+            if (!(lootnum <= e.getPropability()))
+                continue;
+
+            if (event == null || e.getPropability() < event.getPropability())
+                event = e;
+        }
+
+        return event;
+    }
 }

@@ -6,6 +6,8 @@ import be.artex.lootLoop.commands.Sell;
 import be.artex.lootLoop.listeners.PlayerBlockEvent;
 import be.artex.lootLoop.listeners.PlayerConnectionEvent;
 import be.artex.lootLoop.minerals.stone.Stone;
+import be.artex.lootLoop.minerals.stone.drops.fossil.Fossil;
+import be.artex.lootLoop.minerals.stone.drops.hardRock.HardRock;
 import be.artex.lootLoop.minerals.stone.drops.stoneCube.StoneCube;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -24,6 +26,8 @@ public final class LootLoop extends JavaPlugin {
         Mineral.registerMineral(new Stone());
 
         Item.registerItem(new StoneCube());
+        Item.registerItem(new HardRock());
+        Item.registerItem(new Fossil());
 
         instance = this;
     }

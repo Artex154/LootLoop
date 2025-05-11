@@ -17,8 +17,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public class Sell implements CommandExecutor {
@@ -32,7 +34,7 @@ public class Sell implements CommandExecutor {
         ItemStack stack = player.getInventory().getItemInMainHand();
         Item item = Item.getItemFromStack(stack);
 
-        if (item == null) {
+        if (item == null || item.getSellMoney() == 0) {
             player.sendMessage(Component.text("[", NamedTextColor.DARK_GRAY).append(
                     Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.RED).append(
                             Component.text("]", NamedTextColor.DARK_GRAY).append(
@@ -41,7 +43,9 @@ public class Sell implements CommandExecutor {
         }
 
         String itemName = "<null>";
-        int money = stack.getAmount() * item.getSellMoney();
+        int moneyInt = stack.getAmount() * item.getSellMoney();
+
+        String money = formatNumber(moneyInt);
 
         if (stack.getItemMeta().hasCustomName()) {
             Component component = stack.getItemMeta().customName();
@@ -51,7 +55,7 @@ public class Sell implements CommandExecutor {
         if (confirmation.contains(player.getUniqueId())) {
             player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
 
-            Statistics.addMoney(player, money, PlayerConnectionEvent.boards.get(player.getUniqueId()));
+            Statistics.addMoney(player, moneyInt, PlayerConnectionEvent.boards.get(player.getUniqueId()));
             confirmation.remove(player.getUniqueId());
 
             player.sendMessage(Component.text("[", NamedTextColor.GRAY).append(
@@ -80,7 +84,10 @@ public class Sell implements CommandExecutor {
                     confirmation.remove(player.getUniqueId()), 5*20L);
         }
 
-
         return true;
+    }
+
+    public static String formatNumber(int number) {
+        return String.format("%,d", number).replace(",", "'");
     }
 }

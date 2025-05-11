@@ -2,6 +2,8 @@ package be.artex.lootLoop.minerals.stone;
 
 import be.artex.lootLoop.api.Event;
 import be.artex.lootLoop.api.Mineral;
+import be.artex.lootLoop.minerals.stone.drops.fossil.FossilDrop;
+import be.artex.lootLoop.minerals.stone.drops.hardRock.HardRockDrop;
 import be.artex.lootLoop.minerals.stone.drops.stoneCube.StoneCubeDrop;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
@@ -16,6 +18,6 @@ public class Stone extends Mineral {
 
     @Override
     public @NotNull List<Event> getEvents() {
-        return List.of(new StoneCubeDrop());
+        return List.of(new StoneCubeDrop(), new HardRockDrop(), new FossilDrop());
     }
 }
