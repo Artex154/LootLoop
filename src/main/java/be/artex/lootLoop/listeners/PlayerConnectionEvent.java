@@ -36,6 +36,10 @@ public class PlayerConnectionEvent implements Listener {
             playerPDC.set(Statistics.MINED_BLOCS, PersistentDataType.INTEGER, 0);
         }
 
+        if (!playerPDC.has(Statistics.MONEY)) {
+            playerPDC.set(Statistics.MONEY, PersistentDataType.INTEGER, 0);
+        }
+
         FastBoard board = new FastBoard(player);
 
         board.updateTitle(Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", TextColor.color(252, 194, 1)).decorate(TextDecoration.BOLD, TextDecoration.ITALIC));

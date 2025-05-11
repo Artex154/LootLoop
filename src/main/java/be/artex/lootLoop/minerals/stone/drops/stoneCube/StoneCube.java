@@ -26,11 +26,13 @@ public class StoneCube extends Item {
                 Component.text("ᴏʙᴊᴇᴛ ᴄᴏᴍᴍᴜɴ", NamedTextColor.WHITE).decoration(TextDecoration.ITALIC, false)
         ));
 
-        stack.addUnsafeEnchantment(Enchantment.BREACH, 1);
-        stack.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-
         stack.setItemMeta(meta);
 
         return stack;
+    }
+
+    @Override
+    public int getSellMoney() {
+        return 10000;
     }
 }
