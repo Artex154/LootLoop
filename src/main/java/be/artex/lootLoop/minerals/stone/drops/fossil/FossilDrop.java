@@ -12,6 +12,6 @@ public class FossilDrop extends Drop {
 
     @Override
     public float getDropChance() {
-        return 0.07f;
+        return 0.7f;
     }
 }

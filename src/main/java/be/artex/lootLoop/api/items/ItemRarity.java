@@ -1,24 +1,30 @@
 package be.artex.lootLoop.api.items;
 
-
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 
 public enum ItemRarity {
-    COMMON(Component.text("ᴏʙᴊᴇᴛ ᴄᴏᴍᴍᴜɴ", NamedTextColor.WHITE)),
-    UNCOMMON(Component.text("ᴏʙᴊᴇᴛ ᴘᴇᴜ ᴄᴏᴍᴍᴜɴ", NamedTextColor.GREEN)),
-    RARE(Component.text("ᴏʙᴊᴇᴛ ʀᴀʀᴇ", NamedTextColor.BLUE)),
-    EPIC(Component.text("ᴏʙᴊᴇᴛ ᴇᴘɪǫᴜᴇ", NamedTextColor.DARK_PURPLE)),
-    LEGENDARY(Component.text("ᴏʙᴊᴇᴛ ʟᴇɢᴇɴᴅᴀɪʀᴇ", NamedTextColor.GOLD)),
-    MYTHIC(Component.text("ᴏʙᴊᴇᴛ ᴍʏᴛʜɪǫᴜᴇ", NamedTextColor.LIGHT_PURPLE));
+    COMMON("ᴏʙᴊᴇᴛ ᴄᴏᴍᴍᴜɴ", NamedTextColor.WHITE),
+    UNCOMMON("ᴏʙᴊᴇᴛ ᴘᴇᴜ ᴄᴏᴍᴍᴜɴ", NamedTextColor.GREEN),
+    RARE("ᴏʙᴊᴇᴛ ʀᴀʀᴇ", NamedTextColor.BLUE),
+    EPIC("ᴏʙᴊᴇᴛ ᴇᴘɪǫᴜᴇ", NamedTextColor.DARK_PURPLE),
+    LEGENDARY("ᴏʙᴊᴇᴛ ʟᴇɢᴇɴᴅᴀɪʀᴇ", NamedTextColor.GOLD),
+    MYTHIC("ᴏʙᴊᴇᴛ ᴍʏᴛʜɪǫᴜᴇ", NamedTextColor.LIGHT_PURPLE);
 
-    private final Component text;
+    private final String text;
+    private final TextColor color;
 
-    ItemRarity(Component text) {
+    ItemRarity(String text, TextColor color) {
         this.text = text;
+        this.color = color;
     }
 
     public Component getText() {
-        return text;
+        return Component.text(text, color);
+    }
+
+    public TextColor getColor() {
+        return color;
     }
 }
