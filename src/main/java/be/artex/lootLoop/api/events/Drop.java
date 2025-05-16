@@ -1,7 +1,7 @@
 package be.artex.lootLoop.api.events;
 
 import be.artex.lootLoop.api.Event;
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;

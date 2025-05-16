@@ -1,6 +1,6 @@
 package be.artex.lootLoop.minerals.stone.drops.fossil;
 
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.events.Drop;
 import org.jetbrains.annotations.NotNull;
 

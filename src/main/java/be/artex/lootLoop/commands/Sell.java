@@ -2,7 +2,7 @@ package be.artex.lootLoop.commands;
 
 import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.Statistics;
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.listeners.PlayerConnectionEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -17,10 +17,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 public class Sell implements CommandExecutor {

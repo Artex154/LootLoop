@@ -1,6 +1,6 @@
 package be.artex.lootLoop.minerals.stone.drops.fossil;
 
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;

@@ -1,4 +1,4 @@
-package be.artex.lootLoop.api;
+package be.artex.lootLoop.api.items;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;

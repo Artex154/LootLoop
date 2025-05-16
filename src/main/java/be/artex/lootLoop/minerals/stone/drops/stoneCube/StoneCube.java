@@ -1,12 +1,10 @@
 package be.artex.lootLoop.minerals.stone.drops.stoneCube;
 
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 

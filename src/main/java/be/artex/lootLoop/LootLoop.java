@@ -1,6 +1,6 @@
 package be.artex.lootLoop;
 
-import be.artex.lootLoop.api.Item;
+import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.commands.Sell;
 import be.artex.lootLoop.listeners.PlayerBlockEvent;
