@@ -1,4 +1,4 @@
-package be.artex.lootLoop.listeners;
+package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.api.Event;
@@ -13,8 +13,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
-
-import java.util.Random;
 
 public class PlayerBlockEvent implements Listener {
     @EventHandler

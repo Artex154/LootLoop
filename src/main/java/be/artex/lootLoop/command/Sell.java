@@ -1,9 +1,9 @@
-package be.artex.lootLoop.commands;
+package be.artex.lootLoop.command;
 
 import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.api.items.Item;
-import be.artex.lootLoop.listeners.PlayerConnectionEvent;
+import be.artex.lootLoop.listener.PlayerConnectionEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;

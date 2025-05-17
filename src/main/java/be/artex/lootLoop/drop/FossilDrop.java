@@ -1,17 +1,18 @@
-package be.artex.lootLoop.minerals.stone.drops.hardRock;
+package be.artex.lootLoop.drop;
 
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.events.Drop;
+import be.artex.lootLoop.item.materials.Fossil;
 import org.jetbrains.annotations.NotNull;
 
-public class HardRockDrop extends Drop {
+public class FossilDrop extends Drop {
     @Override
     public @NotNull Item getItem() {
-        return new HardRock();
+        return new Fossil();
     }
 
     @Override
     public float getDropChance() {
-        return 1;
+        return 0.7f;
     }
 }

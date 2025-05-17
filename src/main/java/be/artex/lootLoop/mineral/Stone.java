@@ -1,10 +1,10 @@
-package be.artex.lootLoop.minerals.stone;
+package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.Event;
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.minerals.stone.drops.fossil.FossilDrop;
-import be.artex.lootLoop.minerals.stone.drops.hardRock.HardRockDrop;
-import be.artex.lootLoop.minerals.stone.drops.stoneCube.StoneCubeDrop;
+import be.artex.lootLoop.drop.FossilDrop;
+import be.artex.lootLoop.drop.stone.HardRockDrop;
+import be.artex.lootLoop.drop.stone.StoneCubeDrop;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
 

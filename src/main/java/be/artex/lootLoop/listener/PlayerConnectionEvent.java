@@ -1,4 +1,4 @@
-package be.artex.lootLoop.listeners;
+package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.scoreboard.Scoreboard;

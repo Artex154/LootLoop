@@ -1,7 +1,7 @@
 package be.artex.lootLoop.scoreboard;
 
 import be.artex.lootLoop.Statistics;
-import be.artex.lootLoop.commands.Sell;
+import be.artex.lootLoop.command.Sell;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
