@@ -35,10 +35,10 @@ public abstract class Mineral {
         Event event = null;
 
         for (Event e : mineral.getEvents()) {
-            if (!(lootnum <= e.getPropability()))
+            if (!(lootnum <= e.getProbability()))
                 continue;
 
-            if (event == null || e.getPropability() < event.getPropability())
+            if (event == null || e.getProbability() < event.getProbability())
                 event = e;
         }
 
@@ -49,10 +49,10 @@ public abstract class Mineral {
         Event event = null;
 
         for (Event e : mineral.getEvents()) {
-            if (!(lootnum <= e.getPropability()))
+            if (!(lootnum <= e.getProbability()))
                 continue;
 
-            if (event == null || e.getPropability() < event.getPropability())
+            if (event == null || e.getProbability() < event.getProbability())
                 event = e;
         }
 

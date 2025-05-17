@@ -1,33 +1,36 @@
 package be.artex.lootLoop;
 
-import be.artex.lootLoop.scoreboard.Scoreboard;
-import fr.mrmicky.fastboard.adventure.FastBoard;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.plugin.Plugin;
 
 public class Statistics {
-    public static final NamespacedKey MINED_BLOCS = new NamespacedKey(LootLoop.instance, "lootloop/mined_blocks");
-    public static final NamespacedKey MONEY = new NamespacedKey(LootLoop.instance, "lootloop/money");
+    private static final Plugin MAIN = LootLoop.getInstance();
 
-    public static void addMoney(Player player, int money, FastBoard board) {
+    public static final NamespacedKey MINED_BLOCS = new NamespacedKey(MAIN, "mined_blocks");
+    public static final NamespacedKey MONEY = new NamespacedKey(MAIN, "money");
+
+    public static int getInt(Player player, NamespacedKey key) {
+        return player.getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
+    }
+
+    public static int addInt(Player player, NamespacedKey key, int i) {
         PersistentDataContainer PDC = player.getPersistentDataContainer();
 
-        int m = PDC.get(MONEY, PersistentDataType.INTEGER) + money;
+        int m = PDC.get(key, PersistentDataType.INTEGER) + i;
 
-        PDC.set(Statistics.MONEY, PersistentDataType.INTEGER, m);
+        PDC.set(key, PersistentDataType.INTEGER, m);
 
-        if (board != null)
-            Scoreboard.updateBoard(board, player);
-        else
-            player.sendMessage(Component.text("[", NamedTextColor.DARK_GRAY).append(
-                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.RED).append(
-                            Component.text("]", NamedTextColor.DARK_GRAY).append(
-                                    Component.text(" ᴠᴏᴜs ɴᴇ ᴘᴏsséᴅᴇᴢ ᴘᴀs ᴅᴇ sᴄᴏʀᴇʙᴏᴀʀᴅ, ᴅéᴄᴏɴɴɴᴇᴄᴛᴇᴢ ᴇᴛ ʀᴇᴄᴏɴɴᴇᴄᴛᴇᴢ ᴠᴏᴜs ᴘᴏᴜʀ ʟᴇ ʀᴇᴄᴇᴠᴏɪʀ.")))));
+        return m;
+    }
+
+    public static int setInt(Player player, NamespacedKey key, int i) {
+        player.getPersistentDataContainer().set(key, PersistentDataType.INTEGER, i);
+
+        return i;
     }
 
     public static int playerHoursPlaytime(Player player) {

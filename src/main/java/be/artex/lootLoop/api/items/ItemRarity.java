@@ -13,18 +13,24 @@ public enum ItemRarity {
     MYTHIC("ᴏʙᴊᴇᴛ ᴍʏᴛʜɪǫᴜᴇ", NamedTextColor.LIGHT_PURPLE);
 
     private final String text;
+    private final Component displayText;
     private final TextColor color;
 
     ItemRarity(String text, TextColor color) {
         this.text = text;
         this.color = color;
+        this.displayText = Component.text(this.text, this.color);
     }
 
-    public Component getText() {
-        return Component.text(text, color);
+    public Component getDisplayText() {
+        return displayText;
     }
 
     public TextColor getColor() {
         return color;
+    }
+
+    public String getText() {
+        return text;
     }
 }

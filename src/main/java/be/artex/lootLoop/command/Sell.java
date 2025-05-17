@@ -3,7 +3,6 @@ package be.artex.lootLoop.command;
 import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.api.items.Item;
-import be.artex.lootLoop.listener.PlayerConnectionEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
@@ -53,7 +52,7 @@ public class Sell implements CommandExecutor {
         if (confirmation.contains(player.getUniqueId())) {
             player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
 
-            Statistics.addMoney(player, moneyInt, PlayerConnectionEvent.boards.get(player.getUniqueId()));
+            Statistics.addInt(player, Statistics.MONEY, moneyInt);
             confirmation.remove(player.getUniqueId());
 
             player.sendMessage(Component.text("[", NamedTextColor.GRAY).append(
@@ -78,7 +77,7 @@ public class Sell implements CommandExecutor {
 
             confirmation.add(player.getUniqueId());
 
-            Bukkit.getScheduler().runTaskLater(LootLoop.instance, () ->
+            Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () ->
                     confirmation.remove(player.getUniqueId()), 5*20L);
         }
 

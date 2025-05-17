@@ -17,7 +17,7 @@ public class ItemBuilder {
     private List<Component> description = new ArrayList<>();
 
     public ItemBuilder(ItemStack stack, ItemRarity rarity) {
-        this.stack = stack;
+        this.stack = stack.clone();
         this.rarity = rarity;
     }
 
@@ -44,8 +44,10 @@ public class ItemBuilder {
 
     public ItemBuilder description(Component... description) {
         List<Component> l = new ArrayList<>();
-
         Collections.addAll(l, description);
+
+        l.add(Component.empty());
+        l.add(rarity.getDisplayText().decoration(TextDecoration.ITALIC, false));
 
         this.description = l;
 
@@ -54,9 +56,6 @@ public class ItemBuilder {
 
     public ItemStack build() {
         ItemStackBuilder builder = ItemStackBuilder.create(stack);
-
-        this.description.add(Component.text(""));
-        this.description.add(rarity.getText().decoration(TextDecoration.ITALIC, false));
 
         if (!this.name.equals(Component.empty()))
             builder.name(this.name);

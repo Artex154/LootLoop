@@ -11,15 +11,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
 
 public class PlayerBlockEvent implements Listener {
     @EventHandler
-    public void BlockBreakEvent(BlockBreakEvent event) {
+    public void blockBreakEvent(BlockBreakEvent event) {
         Player player = event.getPlayer();
 
-        addMinedBlock(PlayerConnectionEvent.boards.get(player.getUniqueId()), player, player.getPersistentDataContainer());
+        addMinedBlock(PlayerConnectionEvent.boards.get(player.getUniqueId()), player);
 
         Mineral mineral = Mineral.getMineralFromMaterial(event.getBlock().getType());
 
@@ -32,10 +30,8 @@ public class PlayerBlockEvent implements Listener {
             mineralEvent.event(event);
     }
 
-    private static void addMinedBlock(FastBoard board, Player player, PersistentDataContainer PDC) {
-        int minedBlocks = PDC.get(Statistics.MINED_BLOCS, PersistentDataType.INTEGER) + 1;
-
-        PDC.set(Statistics.MINED_BLOCS, PersistentDataType.INTEGER, minedBlocks);
+    private static void addMinedBlock(FastBoard board, Player player) {
+        Statistics.addInt(player, Statistics.MINED_BLOCS, 1);
 
         if (board != null)
             Scoreboard.updateBoard(board, player);

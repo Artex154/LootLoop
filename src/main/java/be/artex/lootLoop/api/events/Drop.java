@@ -27,7 +27,7 @@ public abstract class Drop extends Event {
     }
 
     @Override
-    public float getPropability() {
+    public float getProbability() {
         return getDropChance();
     }
 

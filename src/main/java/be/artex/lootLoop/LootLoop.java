@@ -14,7 +14,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LootLoop extends JavaPlugin {
-    public static Plugin instance;
+    private static Plugin instance;
 
     @Override
     public void onEnable() {
@@ -32,4 +32,7 @@ public final class LootLoop extends JavaPlugin {
         instance = this;
     }
 
+    public static Plugin getInstance() {
+        return instance;
+    }
 }
