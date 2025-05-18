@@ -1,5 +1,6 @@
 package be.artex.lootLoop.api.items;
 
+import be.artex.lootLoop.api.items.itemType.Combinable;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -11,10 +12,15 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class Item {
-    public static final List<Item> REGISTERED_ITEMS = new ArrayList<>();
+    private static final List<Item> REGISTERED_ITEMS = new ArrayList<>();
 
+    public abstract String getItemId();
     public abstract ItemStack getStack();
     public abstract int getSellMoney();
+
+    public Item getRecombobulatedItem() {
+        return null;
+    }
 
     public void onHit(Player damager, Player target) {
     }
@@ -27,6 +33,9 @@ public abstract class Item {
 
     public static void registerItem(Item item) {
         REGISTERED_ITEMS.add(item);
+
+        if (item instanceof Combinable combinable)
+            Combinable.COMBINABLES.add(combinable);
     }
 
     public static List<Item> getRegisteredItems() {
@@ -39,6 +48,20 @@ public abstract class Item {
 
         for (Item item : REGISTERED_ITEMS) {
             if (!Objects.equals(item.getStack().getItemMeta(), stack.getItemMeta()))
+                continue;
+
+            return item;
+        }
+
+        return null;
+    }
+
+    public static Item getItemFromId(String id) {
+        if (id == null || id.isBlank())
+            return null;
+
+        for (Item item : REGISTERED_ITEMS) {
+            if (!item.getItemId().equalsIgnoreCase(id))
                 continue;
 
             return item;

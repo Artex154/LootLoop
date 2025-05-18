@@ -6,3 +6,6 @@ commands:
   sell:
     description: "sell"
     usage: "/sell"
+  test:
+    description: "gives any item"
+    usage: "/test <item-id>"

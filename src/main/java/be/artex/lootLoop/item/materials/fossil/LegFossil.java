@@ -1,4 +1,4 @@
-package be.artex.lootLoop.item.materials.stone;
+package be.artex.lootLoop.item.materials.fossil;
 
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.items.ItemRarity;
@@ -8,16 +8,16 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class HardRock extends Item {
+public class LegFossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
-            create(Material.STONE, ItemRarity.UNCOMMON)
-            .name("Roche Dure")
-            .description(Component.text("ᴜɴᴇ ʀᴏᴄʜᴇ ᴛʀès ᴅᴜʀᴇ, ᴍᴀɪs ᴀᴜssɪ ᴛʀès ʟᴏᴜʀᴅᴇ.", NamedTextColor.GRAY))
+            create(Material.BONE, ItemRarity.LEGENDARY)
+            .name("Fossile")
+            .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜ'ɪʟ ᴠɪᴇɴᴛ ᴅ'ᴜɴᴇ ᴛʀès ᴀɴᴄɪᴇɴɴᴇ ᴄɪᴠɪʟɪsᴀᴛɪᴏɴ.", NamedTextColor.GRAY), Component.text("ɪʟ ᴀ ᴜɴᴇ ᴛʀès ɢʀᴀɴᴅᴇ ᴠᴀʟᴇᴜʀ.", NamedTextColor.GRAY))
             .build();
 
     @Override
     public String getItemId() {
-        return "hard_rock";
+        return "leg_fossil";
     }
 
     @Override
@@ -27,6 +27,6 @@ public class HardRock extends Item {
 
     @Override
     public int getSellMoney() {
-        return 30000;
+        return 13000000;
     }
 }

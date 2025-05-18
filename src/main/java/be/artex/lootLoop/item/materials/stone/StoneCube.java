@@ -15,6 +15,11 @@ public class StoneCube extends Item {
             .build();
 
     @Override
+    public String getItemId() {
+        return "stone_cube";
+    }
+
+    @Override
     public ItemStack getStack() {
         return STACK;
     }

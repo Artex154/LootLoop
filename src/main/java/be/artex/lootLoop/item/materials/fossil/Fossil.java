@@ -1,4 +1,4 @@
-package be.artex.lootLoop.item.materials;
+package be.artex.lootLoop.item.materials.fossil;
 
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.items.ItemRarity;
@@ -17,6 +17,11 @@ public class Fossil extends Item {
                 .build();
 
     @Override
+    public String getItemId() {
+        return "fossil";
+    }
+
+    @Override
     public ItemStack getStack() {
         return STACK;
     }
@@ -24,5 +29,10 @@ public class Fossil extends Item {
     @Override
     public int getSellMoney() {
         return 1000000;
+    }
+
+    @Override
+    public Item getRecombobulatedItem() {
+        return new LegFossil();
     }
 }
