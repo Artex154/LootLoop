@@ -16,12 +16,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Sell implements CommandExecutor {
-    public static List<UUID> confirmation = new ArrayList<>();
+    public static Set<UUID> confirmation = Collections.synchronizedSet(new HashSet<>());
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {

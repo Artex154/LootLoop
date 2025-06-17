@@ -1,7 +1,9 @@
 package be.artex.lootLoop.api;
 
+import be.artex.lootLoop.api.events.Event;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
@@ -11,41 +13,28 @@ public abstract class Mineral {
     public abstract @NotNull Material getMaterial();
     public abstract @NotNull List<Event> getEvents();
 
-    public static void registerMineral(Mineral mineral) {
+    public static void registerMineral(@NotNull Mineral mineral) {
         REGISTERED_MINERALS.add(mineral);
     }
 
-    public static List<Mineral> getRegisteredMinerals() {
+    public static @NotNull List<Mineral> getRegisteredMinerals() {
         return Collections.unmodifiableList(REGISTERED_MINERALS);
     }
 
-    public static Mineral getMineralFromMaterial(Material material) {
+    public static @Nullable Mineral getMineralFromMaterial(@NotNull Material material) {
         for (Mineral mineral : REGISTERED_MINERALS) {
-            if (!mineral.getMaterial().equals(material))
-                continue;
-
-            return mineral;
+            if (mineral.getMaterial() == material)
+                return mineral;
         }
 
         return null;
     }
 
-    public static Event generateEvent(Mineral mineral) {
-        float lootnum = new Random().nextFloat(100);
-        Event event = null;
-
-        for (Event e : mineral.getEvents()) {
-            if (!(lootnum <= e.getProbability()))
-                continue;
-
-            if (event == null || e.getProbability() < event.getProbability())
-                event = e;
-        }
-
-        return event;
+    public static @Nullable Event generateEvent(@NotNull Mineral mineral) {
+       return generateEvent(mineral, new Random().nextFloat(100));
     }
 
-    public static Event generateEvent(Mineral mineral, float lootnum) {
+    public static @Nullable Event generateEvent(@NotNull Mineral mineral, float lootnum) {
         Event event = null;
 
         for (Event e : mineral.getEvents()) {

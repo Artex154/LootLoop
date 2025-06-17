@@ -1,7 +1,7 @@
 package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.Statistics;
-import be.artex.lootLoop.api.Event;
+import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.scoreboard.Scoreboard;
 import fr.mrmicky.fastboard.adventure.FastBoard;

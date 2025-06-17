@@ -10,8 +10,8 @@ import org.bukkit.inventory.ItemStack;
 public class StoneCube extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.COBBLESTONE)
-            .name("Cube de Pierre")
-            .description(Component.text("ᴜɴ ᴅᴇs ᴏʙᴊᴇᴛs ᴀᴠᴇᴄ ʟᴇ ᴍᴏɪɴs ᴅᴇ ᴠᴀʟᴇᴜʀ ᴅᴇ ᴄᴇ ᴍᴏɴᴅᴇ,", NamedTextColor.GRAY), Component.text("ᴍᴀɪs ɪʟ ғᴀᴜᴛ ʙɪᴇɴ ᴄᴏᴍᴍᴇɴᴄᴇʀ ǫᴜᴇʟǫᴜᴇ ᴘᴀʀᴛ!", NamedTextColor.GRAY))
+            .name("ᴄᴜʙᴇ ᴅᴇ ᴘɪᴇʀʀᴇ")
+            .description(Component.text("ᴜɴ ᴏʙᴊᴇᴛ ᴀᴠᴇᴄ ᴘᴇᴜ ᴅᴇ ᴠᴀʟᴇᴜʀ   ", NamedTextColor.GRAY))
             .build();
 
     @Override

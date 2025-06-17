@@ -26,6 +26,6 @@ public class Stacks {
 
     public static final ItemStack RECOMBOBULATOR = ItemBuilder.create(Material.EMERALD, ItemRarity.LEGENDARY)
             .name("ʀᴇᴄᴏᴍʙᴏʙᴜʟᴀᴛᴏʀ")
-            .description(Component.text("ᴄᴏᴍʙɪɴᴇʀ ᴀᴠᴇᴄ ᴜɴ ᴏʙᴊᴇᴛ ᴘᴏᴜʀ ᴀᴍᴇʟɪᴏʀᴇʀ sᴀ ʀᴀʀɪᴛᴇ", NamedTextColor.GRAY))
+            .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜᴇ ǫᴜᴀɴᴅ ɪʟ ᴇsᴛ ᴄᴏᴍʙɪɴᴇ ᴀᴠᴇᴄ ᴜɴ ᴏʙᴊᴇᴛ, ʟ'ᴏʙᴊᴇᴄᴛ ᴀᴜɢᴍᴇɴᴛᴇ ᴇɴ ʀᴀʀɪᴛᴇ     ", NamedTextColor.GRAY))
             .build();
 }

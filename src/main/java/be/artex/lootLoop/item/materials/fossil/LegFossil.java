@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class LegFossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.BONE, ItemRarity.LEGENDARY)
-            .name("Fossile")
+            .name("ғᴏssɪʟᴇ")
             .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜ'ɪʟ ᴠɪᴇɴᴛ ᴅ'ᴜɴᴇ ᴛʀès ᴀɴᴄɪᴇɴɴᴇ ᴄɪᴠɪʟɪsᴀᴛɪᴏɴ.", NamedTextColor.GRAY), Component.text("ɪʟ ᴀ ᴜɴᴇ ᴛʀès ɢʀᴀɴᴅᴇ ᴠᴀʟᴇᴜʀ.", NamedTextColor.GRAY))
             .build();
 

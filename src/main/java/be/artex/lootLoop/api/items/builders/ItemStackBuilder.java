@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ItemStackBuilder {
     private final ItemStack stack;
-    private Component name = Component.text("");
+    private Component name = Component.empty();
     private List<Component> lore = new ArrayList<>();
 
     private ItemStackBuilder(ItemStack stack) {

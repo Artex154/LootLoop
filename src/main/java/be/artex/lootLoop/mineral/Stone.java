@@ -1,6 +1,6 @@
 package be.artex.lootLoop.mineral;
 
-import be.artex.lootLoop.api.Event;
+import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.drop.FossilDrop;
 import be.artex.lootLoop.drop.stone.HardRockDrop;

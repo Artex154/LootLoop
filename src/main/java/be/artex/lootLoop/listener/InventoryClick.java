@@ -2,6 +2,7 @@ package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.GUI.CombineGUI;
 import be.artex.lootLoop.Stacks;
+import be.artex.lootLoop.api.items.Item;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,8 +30,8 @@ public class InventoryClick implements Listener {
 
         Inventory inventory = event.getClickedInventory();
 
-        ItemStack firstItem = inventory.getItem(11);
-        ItemStack secondItem = inventory.getItem(15);
+        Item firstItem = Item.getItemFromStack(inventory.getItem(11));
+        Item secondItem = Item.getItemFromStack(inventory.getItem(15));
         ItemStack result = Stacks.NO_RESULT;
 
         if (firstItem != null && secondItem != null)
@@ -38,7 +39,7 @@ public class InventoryClick implements Listener {
 
         inventory.setItem(22, result);
 
-        if (!result.equals(Stacks.NO_RESULT)) {
+        if (!result.isSimilar(Stacks.NO_RESULT)) {
             inventory.setItem(11, new ItemStack(Material.AIR));
             inventory.setItem(15, new ItemStack(Material.AIR));
         }

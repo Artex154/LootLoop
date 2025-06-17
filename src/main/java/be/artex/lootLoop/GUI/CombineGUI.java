@@ -2,6 +2,7 @@ package be.artex.lootLoop.GUI;
 
 import be.artex.lootLoop.Stacks;
 import be.artex.lootLoop.api.items.Item;
+import be.artex.lootLoop.api.items.itemType.Recombobulable;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -25,37 +26,16 @@ public class CombineGUI {
         return inv;
     }
 
-    public static ItemStack combine(ItemStack firstStack, ItemStack secondStack) {
-        ItemStack recombulator = Stacks.RECOMBOBULATOR;
-
-        if (!firstStack.equals(recombulator) && !secondStack.equals(recombulator))
+    public static ItemStack combine(Item firstItem, Item secondItem) {
+        if (!firstItem.getItemId().equals("recombobulator") && !secondItem.getItemId().equals("recombobulator"))
             return Stacks.NO_RESULT;
 
-        if (!firstStack.equals(recombulator)) {
-            Item item = Item.getItemFromStack(firstStack);
+        Item targetItem = firstItem.getItemId().equals("recombobulator") ? secondItem : firstItem;
 
-            if (item == null)
-                return Stacks.NO_RESULT;
-
-            Item recomb = item.getRecombobulatedItem();
-
-            if (recomb == null)
-                return Stacks.NO_RESULT;
-
-            return recomb.getStack();
-        }
-
-        Item item = Item.getItemFromStack(secondStack);
-
-        if (item == null)
+        if (!(targetItem instanceof Recombobulable recomb) || recomb.getRecombobulatedItem() == null)
             return Stacks.NO_RESULT;
 
-        Item recomb = item.getRecombobulatedItem();
-
-        if (recomb == null)
-            return Stacks.NO_RESULT;
-
-        return recomb.getStack();
+        return recomb.getRecombobulatedItem().getStack();
     }
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class ItemBuilder {
     private final ItemStack stack;
     private final ItemRarity rarity;
-    private Component name = Component.text("");
+    private Component name = Component.empty();
     private List<Component> description = new ArrayList<>();
 
     public ItemBuilder(ItemStack stack, ItemRarity rarity) {
@@ -57,7 +57,7 @@ public class ItemBuilder {
     public ItemStack build() {
         ItemStackBuilder builder = ItemStackBuilder.create(stack);
 
-        if (!this.name.equals(Component.empty()))
+        if (!Component.empty().equals(this.name))
             builder.name(this.name);
 
         builder.lore(this.description);

@@ -6,6 +6,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,10 +18,6 @@ public abstract class Item {
     public abstract String getItemId();
     public abstract ItemStack getStack();
     public abstract int getSellMoney();
-
-    public Item getRecombobulatedItem() {
-        return null;
-    }
 
     public void onHit(Player damager, Player target) {
     }
@@ -42,21 +39,19 @@ public abstract class Item {
         return Collections.unmodifiableList(REGISTERED_ITEMS);
     }
 
-    public static Item getItemFromStack(ItemStack stack) {
-        if (stack == null || stack.getType().equals(Material.AIR))
+    public static @Nullable Item getItemFromStack(@Nullable ItemStack stack) {
+        if (stack == null || stack.getType() == Material.AIR)
             return null;
 
         for (Item item : REGISTERED_ITEMS) {
-            if (!Objects.equals(item.getStack().getItemMeta(), stack.getItemMeta()))
-                continue;
-
-            return item;
+            if (Objects.equals(item.getStack().getItemMeta(), stack.getItemMeta()))
+                return item;
         }
 
         return null;
     }
 
-    public static Item getItemFromId(String id) {
+    public static @Nullable Item getItemFromId(@Nullable String id) {
         if (id == null || id.isBlank())
             return null;
 
