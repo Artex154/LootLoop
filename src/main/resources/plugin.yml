@@ -1,7 +1,7 @@
 name: LootLoop
 version: '1.0-SNAPSHOT'
 main: be.artex.lootLoop.LootLoop
-api-version: '1.21'
+api-version: '1.21.11'
 commands:
   sell:
     description: "sell"
