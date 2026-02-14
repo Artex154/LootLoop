@@ -36,10 +36,10 @@ public class PlayerBlockEvent implements Listener {
         if (board != null)
             Scoreboard.updateBoard(board, player);
         else
-            player.sendMessage(Component.text("[", NamedTextColor.DARK_GRAY).append(
-                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.RED).append(
-                            Component.text("]", NamedTextColor.DARK_GRAY).append(
-                                    Component.text(" ᴠᴏᴜs ɴᴇ ᴘᴏsséᴅᴇᴢ ᴘᴀs ᴅᴇ sᴄᴏʀᴇʙᴏᴀʀᴅ, ᴅéᴄᴏɴɴɴᴇᴄᴛᴇᴢ ᴇᴛ ʀᴇᴄᴏɴɴᴇᴄᴛᴇᴢ ᴠᴏᴜs ᴘᴏᴜʀ ʟᴇ ʀᴇᴄᴇᴠᴏɪʀ.")))));
+            player.sendMessage(Component.text("[", NamedTextColor.RED).append(
+                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
+                            Component.text("]", NamedTextColor.RED).append(
+                                    Component.text(" ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴛʜᴇ sᴄᴏʀᴇʙᴏᴀʀᴅ. ᴘʟᴇᴀsᴇ ᴅɪsᴄᴏɴɴᴇᴄᴛ ᴀɴᴅ ʀᴇᴄᴏɴɴᴇᴄᴛ.")))));
     }
 
 }

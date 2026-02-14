@@ -18,7 +18,7 @@ public abstract class Drop extends Event {
                 : Component.text("<null>");
 
         player.sendMessage(
-                Component.text("ᴅʀᴏᴘ ʀᴀʀᴇ! ", NamedTextColor.BLUE)
+                Component.text("ʀᴀʀᴇ ᴅʀᴏᴘ! ", NamedTextColor.BLUE)
                         .decorate(TextDecoration.BOLD)
                         .append(itemName)
                         .append(Component.text(" (" + getDropChance() + "%).", NamedTextColor.GOLD))

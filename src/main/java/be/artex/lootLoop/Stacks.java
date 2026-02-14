@@ -1,7 +1,5 @@
 package be.artex.lootLoop;
 
-import be.artex.lootLoop.api.items.ItemRarity;
-import be.artex.lootLoop.api.items.builders.ItemBuilder;
 import be.artex.lootLoop.api.items.builders.ItemStackBuilder;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -14,18 +12,12 @@ public class Stacks {
             .build();
 
     public static final ItemStack COMBINE_ITEM = ItemStackBuilder.create(Material.ANVIL)
-            .name(Component.text("ᴄᴏᴍʙɪɴᴇʀ ʟᴇs ᴏʙᴊᴇᴛs", NamedTextColor.YELLOW))
-            .lore(Component.text("ᴄʟɪǫᴜᴇᴢ ᴘᴏᴜʀ ᴄᴏᴍʙɪɴᴇʀ ʟᴇs ᴏʙᴊᴇᴛs", NamedTextColor.GRAY))
+            .name(Component.text("ᴄᴏᴍʙɪɴᴇ ᴛʜᴇ ɪᴛᴇᴍs", NamedTextColor.YELLOW))
+            .lore(Component.text("ᴄʟɪᴄᴋ ᴛᴏ ᴄᴏᴍʙɪɴᴇ ᴛʜᴇ ɪᴛᴇᴍs", NamedTextColor.GRAY))
             .build();
 
     public static final ItemStack NO_RESULT = ItemStackBuilder.create(Material.BARRIER)
-            .name(Component.text("ᴏʙᴊᴇᴛs ɴᴏɴ ᴄᴏᴍʙɪɴᴀʙʟᴇs", NamedTextColor.RED))
-            .lore(Component.text("ᴄᴇs ᴏʙᴊᴇᴛs ɴᴇ ᴘᴇᴜᴠᴇɴᴛ ᴘᴀs ᴇᴛʀᴇ ᴄᴏᴍʙɪɴᴇs", NamedTextColor.GRAY))
-            .build();
-
-
-    public static final ItemStack RECOMBOBULATOR = ItemBuilder.create(Material.EMERALD, ItemRarity.LEGENDARY)
-            .name("ʀᴇᴄᴏᴍʙᴏʙᴜʟᴀᴛᴏʀ")
-            .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜᴇ ǫᴜᴀɴᴅ ɪʟ ᴇsᴛ ᴄᴏᴍʙɪɴᴇ ᴀᴠᴇᴄ ᴜɴ ᴏʙᴊᴇᴛ, ʟ'ᴏʙᴊᴇᴄᴛ ᴀᴜɢᴍᴇɴᴛᴇ ᴇɴ ʀᴀʀɪᴛᴇ     ", NamedTextColor.GRAY))
+            .name(Component.text("ɪᴛᴇᴍs ɴᴏᴛ ᴄᴏᴍʙɪɴᴀʙʟᴇs", NamedTextColor.RED))
+            .lore(Component.text("ᴛʜᴇsᴇs ɪᴛᴇᴍs ᴄᴀɴ ɴᴏᴛ ʙᴇ ᴄᴏᴍʙɪɴᴇᴅ", NamedTextColor.GRAY))
             .build();
 }

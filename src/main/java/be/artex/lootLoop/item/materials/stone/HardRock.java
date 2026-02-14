@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemStack;
 public class HardRock extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.STONE, ItemRarity.UNCOMMON)
-            .name("ʀᴏᴄʜᴇ ᴅᴜʀᴇ")
-            .description(Component.text("ᴜɴᴇ ʀᴏᴄʜᴇ ᴛʀès ᴅᴜʀᴇ, ᴍᴀɪs ᴀᴜssɪ ᴛʀès ʟᴏᴜʀᴅᴇ.", NamedTextColor.GRAY))
+            .name("ʜᴀʀᴅ ʀᴏᴄᴋ")
+            .description(Component.text("ᴀ ᴠᴇʀʏ ʜᴀʀᴅ, ʙᴜᴛ ᴀʟsᴏ ʜᴇᴀᴠʏ ʀᴏᴄᴋ.", NamedTextColor.GRAY))
             .build();
 
     @Override

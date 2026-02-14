@@ -5,12 +5,12 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 
 public enum ItemRarity {
-    COMMON("ᴏʙᴊᴇᴛ ᴄᴏᴍᴍᴜɴ", NamedTextColor.WHITE),
-    UNCOMMON("ᴏʙᴊᴇᴛ ᴘᴇᴜ ᴄᴏᴍᴍᴜɴ", NamedTextColor.GREEN),
-    RARE("ᴏʙᴊᴇᴛ ʀᴀʀᴇ", NamedTextColor.BLUE),
-    EPIC("ᴏʙᴊᴇᴛ ᴇᴘɪǫᴜᴇ", NamedTextColor.DARK_PURPLE),
-    LEGENDARY("ᴏʙᴊᴇᴛ ʟᴇɢᴇɴᴅᴀɪʀᴇ", NamedTextColor.GOLD),
-    MYTHIC("ᴏʙᴊᴇᴛ ᴍʏᴛʜɪǫᴜᴇ", NamedTextColor.LIGHT_PURPLE);
+    COMMON("ᴄᴏᴍᴍᴏɴ ɪᴛᴇᴍ", NamedTextColor.WHITE),
+    UNCOMMON("ᴜɴᴄᴏᴍᴍᴏɴ ɪᴛᴇᴍ", NamedTextColor.GREEN),
+    RARE("ʀᴀʀᴇ ɪᴛᴇᴍ", NamedTextColor.BLUE),
+    EPIC("ᴇᴘɪᴄ ɪᴛᴇᴍ", NamedTextColor.DARK_PURPLE),
+    LEGENDARY("ʟᴇɢᴇɴᴅᴀʀʏ ɪᴛᴇᴍ", NamedTextColor.GOLD),
+    MYTHIC("ᴍʏᴛʜɪᴄ ɪᴛᴇᴍ", NamedTextColor.LIGHT_PURPLE);
 
     private final String text;
     private final Component displayText;

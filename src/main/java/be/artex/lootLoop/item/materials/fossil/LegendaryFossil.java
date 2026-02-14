@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemStack;
 public class LegendaryFossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.BONE, ItemRarity.LEGENDARY)
-            .name("ғᴏssɪʟᴇ")
-            .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜ'ɪʟ ᴠɪᴇɴᴛ ᴅ'ᴜɴᴇ ᴛʀès ᴀɴᴄɪᴇɴɴᴇ ᴄɪᴠɪʟɪsᴀᴛɪᴏɴ.", NamedTextColor.GRAY), Component.text("ɪʟ ᴀ ᴜɴᴇ ᴛʀès ɢʀᴀɴᴅᴇ ᴠᴀʟᴇᴜʀ.", NamedTextColor.GRAY))
+            .name("ғᴏssɪʟ")
+            .description(Component.text(" ɪᴛ sᴀɪᴅ ᴛʜᴀᴛ ɪᴛ ᴄᴏᴍᴇs ғʀᴏᴍ ᴀ ᴠᴇʀʏ ᴏʟᴅ ᴄɪᴠɪsɪʟᴀᴛɪᴏɴ.   ", NamedTextColor.GRAY), Component.text("ɪᴛ ʜᴀs ᴀ ᴠᴇʀʏ ɢʀᴇᴀᴛ ᴠᴀʟᴜᴇ.", NamedTextColor.GRAY))
             .build();
 
     @Override

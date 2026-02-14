@@ -30,17 +30,15 @@ public class Sell implements CommandExecutor {
         Item item = Item.getItemFromStack(stack);
 
         if (item == null || item.getSellMoney() == 0) {
-            player.sendMessage(Component.text("[", NamedTextColor.DARK_GRAY).append(
-                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.RED).append(
-                            Component.text("]", NamedTextColor.DARK_GRAY).append(
-                                    Component.text(" ᴄᴇᴛ ɪᴛᴇᴍ ɴ'ᴇsᴛ ᴘᴀs ᴠᴇɴᴅᴀʙʟᴇ.")))));
+            player.sendMessage(Component.text("[", NamedTextColor.RED).append(
+                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
+                            Component.text("]", NamedTextColor.RED).append(
+                                    Component.text(" ᴛʜɪs ɪᴛᴇᴍ ɪs ɴᴏᴛ sᴇʟʟᴀʙʟᴇ.")))));
             return true;
         }
 
         String itemName = "<null>";
-        int moneyInt = stack.getAmount() * item.getSellMoney();
-
-        String money = formatNumber(moneyInt);
+        int money = stack.getAmount() * item.getSellMoney();
 
         if (stack.getItemMeta().hasCustomName()) {
             Component component = stack.getItemMeta().customName();
@@ -50,28 +48,28 @@ public class Sell implements CommandExecutor {
         if (confirmation.contains(player.getUniqueId())) {
             player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
 
-            Statistics.addInt(player, Statistics.MONEY, moneyInt);
+            Statistics.addInt(player, Statistics.MONEY, money);
             confirmation.remove(player.getUniqueId());
 
-            player.sendMessage(Component.text("[", NamedTextColor.GRAY).append(
-                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.WHITE).append(
-                            Component.text("]", NamedTextColor.GRAY).append(
-                                    Component.text(" ᴠᴏᴜs ᴀᴠᴇᴢ ᴠᴇɴᴅᴜ ").append(
-                                            Component.text(itemName)).append(
+            player.sendMessage(Component.text("[", TextColor.color(255, 100, 0)).append(
+                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
+                            Component.text("]", TextColor.color(255, 100, 0)).append(
+                                    Component.text(" ʏᴏᴜ sᴏʟᴅ ", NamedTextColor.WHITE).append(
+                                            Component.text(itemName, NamedTextColor.BLUE)).append(
                                                     Component.text(" x" + stack.getAmount(), NamedTextColor.BLUE).append(
-                                                            Component.text(" ᴘᴏᴜʀ ", NamedTextColor.GRAY)).append(
+                                                            Component.text(" ғᴏʀ ", NamedTextColor.WHITE).append(
                                                                     Component.text("$" + money, TextColor.color(50, 210, 50)).append(
-                                                                            Component.text(".", NamedTextColor.GRAY))))))));
+                                                                            Component.text(".")))))))));
         } else {
-            player.sendMessage(Component.text("[", NamedTextColor.GRAY).append(
-                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.WHITE).append(
-                            Component.text("]", NamedTextColor.GRAY).append(
-                                    Component.text(" ᴠᴏᴜs ᴀʟʟᴇᴢ ᴠᴇɴᴅʀᴇ ").append(
-                                            Component.text(itemName)).append(
+            player.sendMessage(Component.text("[", TextColor.color(255, 100, 0)).append(
+                    Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
+                            Component.text("]", TextColor.color(255, 100, 0)).append(
+                                    Component.text(" ʏᴏᴜ ᴀʀᴇ ᴀʙᴏᴜᴛ ᴛᴏ sᴇʟʟ ", NamedTextColor.WHITE).append(
+                                            Component.text(itemName, NamedTextColor.BLUE)).append(
                                             Component.text(" x" + stack.getAmount(), NamedTextColor.BLUE).append(
-                                                    Component.text(" ᴘᴏᴜʀ ", NamedTextColor.GRAY)).append(
+                                                    Component.text(" ғᴏʀ ", NamedTextColor.WHITE).append(
                                                     Component.text("$" + money, TextColor.color(50, 210, 50)).append(
-                                                            Component.text(", ᴍᴇʀᴄɪ ᴅᴇ ʀᴇᴛᴀᴘᴘᴇʀ ʟᴀ ᴄᴏᴍᴍᴀɴᴅᴇ ᴘᴏᴜʀ ᴄᴏɴғɪʀᴍᴇʀ ʟᴀ ᴠᴇɴᴛᴇ.", NamedTextColor.GRAY))))))));
+                                                            Component.text(", ᴘʟᴇᴀsᴇ ʀᴇᴛʏᴘᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴄᴏɴғɪʀᴍ.", NamedTextColor.WHITE)))))))));
 
             confirmation.add(player.getUniqueId());
 
@@ -80,9 +78,5 @@ public class Sell implements CommandExecutor {
         }
 
         return true;
-    }
-
-    public static String formatNumber(int number) {
-        return String.format("%,d", number).replace(",", "'");
     }
 }

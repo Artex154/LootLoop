@@ -5,7 +5,6 @@ import be.artex.lootLoop.Items;
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.items.ItemRarity;
 import be.artex.lootLoop.api.items.builders.ItemBuilder;
-import be.artex.lootLoop.item.usable.Recombobulator;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
@@ -17,8 +16,8 @@ import java.util.List;
 public class Fossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.BONE, ItemRarity.EPIC)
-                .name("ғᴏssɪʟᴇ")
-                .description(Component.text("ᴏɴ ᴅɪᴛ ǫᴜ'ɪʟ ᴠɪᴇɴᴛ ᴅ'ᴜɴᴇ ᴛʀès ᴀɴᴄɪᴇɴɴᴇ ᴄɪᴠɪʟɪsᴀᴛɪᴏɴ.   ", NamedTextColor.GRAY), Component.text("ɪʟ ᴀ ᴜɴᴇ ᴛʀès ɢʀᴀɴᴅᴇ ᴠᴀʟᴇᴜʀ.", NamedTextColor.GRAY))
+                .name("ғᴏssɪʟ")
+                .description(Component.text(" ɪᴛ sᴀɪᴅ ᴛʜᴀᴛ ɪᴛ ᴄᴏᴍᴇs ғʀᴏᴍ ᴀ ᴠᴇʀʏ ᴏʟᴅ ᴄɪᴠɪsɪʟᴀᴛɪᴏɴ.   ", NamedTextColor.GRAY), Component.text("ɪᴛ ʜᴀs ᴀ ᴠᴇʀʏ ɢʀᴇᴀᴛ ᴠᴀʟᴜᴇ.", NamedTextColor.GRAY))
                 .build();
 
     @Override
