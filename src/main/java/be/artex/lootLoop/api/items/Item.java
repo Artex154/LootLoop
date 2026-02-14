@@ -1,6 +1,6 @@
 package be.artex.lootLoop.api.items;
 
-import be.artex.lootLoop.api.items.itemType.Combinable;
+import be.artex.lootLoop.GUI.combining.CombinePossibilty;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -19,6 +19,10 @@ public abstract class Item {
     public abstract ItemStack getStack();
     public abstract int getSellMoney();
 
+    public List<CombinePossibilty> getCombinePossibilities() {
+        return List.of();
+    }
+
     public void onHit(Player damager, Player target) {
     }
 
@@ -28,11 +32,9 @@ public abstract class Item {
     public void onClickAtEntity(Player player, ItemStack stack, Entity entity) {
     }
 
-    public static void registerItem(Item item) {
+    public static Item registerItem(Item item) {
         REGISTERED_ITEMS.add(item);
-
-        if (item instanceof Combinable combinable)
-            Combinable.COMBINABLES.add(combinable);
+        return item;
     }
 
     public static List<Item> getRegisteredItems() {
@@ -64,5 +66,4 @@ public abstract class Item {
 
         return null;
     }
-
 }

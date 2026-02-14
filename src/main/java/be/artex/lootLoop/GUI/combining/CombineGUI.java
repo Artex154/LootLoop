@@ -1,11 +1,11 @@
-package be.artex.lootLoop.GUI;
+package be.artex.lootLoop.GUI.combining;
 
 import be.artex.lootLoop.Stacks;
 import be.artex.lootLoop.api.items.Item;
-import be.artex.lootLoop.api.items.itemType.Recombobulable;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class CombineGUI {
     public static Inventory getInventory() {
@@ -26,16 +26,19 @@ public class CombineGUI {
         return inv;
     }
 
+    @NotNull
     public static ItemStack combine(Item firstItem, Item secondItem) {
-        if (!firstItem.getItemId().equals("recombobulator") && !secondItem.getItemId().equals("recombobulator"))
+        if (firstItem == null || secondItem == null)
             return Stacks.NO_RESULT;
 
-        Item targetItem = firstItem.getItemId().equals("recombobulator") ? secondItem : firstItem;
-
-        if (!(targetItem instanceof Recombobulable recomb) || recomb.getRecombobulatedItem() == null)
-            return Stacks.NO_RESULT;
-
-        return recomb.getRecombobulatedItem().getStack();
+        return firstItem.getCombinePossibilities().stream()
+                .filter(p -> {
+                    Item[] params = p.getParams();
+                    return secondItem.equals(params[0]) || secondItem.equals(params[1]);
+                })
+                .findFirst()
+                .map(p -> p.getResult().getStack())
+                .orElse(Stacks.NO_RESULT);
     }
 
 }

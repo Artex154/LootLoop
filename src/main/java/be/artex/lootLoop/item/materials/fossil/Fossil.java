@@ -1,16 +1,20 @@
 package be.artex.lootLoop.item.materials.fossil;
 
+import be.artex.lootLoop.GUI.combining.CombinePossibilty;
+import be.artex.lootLoop.Items;
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.items.ItemRarity;
 import be.artex.lootLoop.api.items.builders.ItemBuilder;
-import be.artex.lootLoop.api.items.itemType.Recombobulable;
+import be.artex.lootLoop.item.usable.Recombobulator;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class Fossil extends Recombobulable {
+import java.util.List;
+
+public class Fossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.BONE, ItemRarity.EPIC)
                 .name("ғᴏssɪʟᴇ")
@@ -33,7 +37,7 @@ public class Fossil extends Recombobulable {
     }
 
     @Override
-    public Item getRecombobulatedItem() {
-        return new LegFossil();
+    public List<CombinePossibilty> getCombinePossibilities() {
+        return List.of(new CombinePossibilty(this, Items.RECOMBOBULATOR, Items.LEGENDARY_FOSSIL));
     }
 }

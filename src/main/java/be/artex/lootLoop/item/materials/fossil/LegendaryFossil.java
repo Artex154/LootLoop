@@ -8,7 +8,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class LegFossil extends Item {
+public class LegendaryFossil extends Item {
     private static final ItemStack STACK = ItemBuilder.
             create(Material.BONE, ItemRarity.LEGENDARY)
             .name("ғᴏssɪʟᴇ")

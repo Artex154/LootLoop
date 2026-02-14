@@ -1,6 +1,6 @@
 package be.artex.lootLoop.listener;
 
-import be.artex.lootLoop.GUI.CombineGUI;
+import be.artex.lootLoop.GUI.combining.CombineGUI;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

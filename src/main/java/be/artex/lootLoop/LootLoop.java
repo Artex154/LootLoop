@@ -5,7 +5,7 @@ import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.command.Sell;
 import be.artex.lootLoop.command.Test;
 import be.artex.lootLoop.item.materials.fossil.Fossil;
-import be.artex.lootLoop.item.materials.fossil.LegFossil;
+import be.artex.lootLoop.item.materials.fossil.LegendaryFossil;
 import be.artex.lootLoop.item.usable.Recombobulator;
 import be.artex.lootLoop.listener.InventoryClick;
 import be.artex.lootLoop.listener.PlayerBlockEvent;
@@ -33,11 +33,7 @@ public final class LootLoop extends JavaPlugin {
 
         Mineral.registerMineral(new Stone());
 
-        Item.registerItem(new StoneCube());
-        Item.registerItem(new HardRock());
-        Item.registerItem(new Fossil());
-        Item.registerItem(new LegFossil());
-        Item.registerItem(new Recombobulator());
+        Items.register();
 
         instance = this;
     }

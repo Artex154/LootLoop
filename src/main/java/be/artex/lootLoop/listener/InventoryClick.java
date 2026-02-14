@@ -1,6 +1,6 @@
 package be.artex.lootLoop.listener;
 
-import be.artex.lootLoop.GUI.CombineGUI;
+import be.artex.lootLoop.GUI.combining.CombineGUI;
 import be.artex.lootLoop.Stacks;
 import be.artex.lootLoop.api.items.Item;
 import org.bukkit.Material;
