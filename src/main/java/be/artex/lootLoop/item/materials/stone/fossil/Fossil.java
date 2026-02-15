@@ -1,4 +1,4 @@
-package be.artex.lootLoop.item.materials.fossil;
+package be.artex.lootLoop.item.materials.stone.fossil;
 
 import be.artex.lootLoop.GUI.combining.CombinePossibilty;
 import be.artex.lootLoop.Items;

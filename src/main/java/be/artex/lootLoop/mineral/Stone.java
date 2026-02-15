@@ -2,7 +2,7 @@ package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.drop.FossilDrop;
+import be.artex.lootLoop.drop.stone.FossilDrop;
 import be.artex.lootLoop.drop.stone.HardRockDrop;
 import be.artex.lootLoop.drop.stone.StoneCubeDrop;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package be.artex.lootLoop.item.materials.fossil;
+package be.artex.lootLoop.item.materials.amethyst;
 
 import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.items.ItemRarity;
@@ -8,16 +8,16 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class LegendaryFossil extends Item {
+public class AmethystGeode extends Item {
     private static final ItemStack STACK = ItemBuilder.
-            create(Material.BONE, ItemRarity.LEGENDARY)
-            .name("ғᴏssɪʟ")
-            .description(Component.text(" ɪᴛ sᴀɪᴅ ᴛʜᴀᴛ ɪᴛ ᴄᴏᴍᴇs ғʀᴏᴍ ᴀ ᴠᴇʀʏ ᴏʟᴅ ᴄɪᴠɪsɪʟᴀᴛɪᴏɴ.   ", NamedTextColor.GRAY), Component.text("ɪᴛ ʜᴀs ᴀ ᴠᴇʀʏ ɢʀᴇᴀᴛ ᴠᴀʟᴜᴇ.", NamedTextColor.GRAY))
+            create(Material.AMETHYST_BLOCK, ItemRarity.UNCOMMON)
+            .name("ᴀᴍᴇᴛʜʏsᴛ ɢᴇᴏᴅᴇ")
+            .description(Component.text("ᴀ ɢᴇᴏᴅᴇ ʀᴀʀᴇʟʏ ғᴏᴜɴᴅ ғʀᴏᴍ ᴀᴍᴇᴛʜʏsᴛ.   ", NamedTextColor.GRAY))
             .build();
 
     @Override
     public String getItemId() {
-        return "leg_fossil";
+        return "amethyst_geode";
     }
 
     @Override
@@ -27,6 +27,6 @@ public class LegendaryFossil extends Item {
 
     @Override
     public int getSellMoney() {
-        return 13000000;
+        return 50000;
     }
 }

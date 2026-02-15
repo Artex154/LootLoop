@@ -13,8 +13,9 @@ public abstract class Mineral {
     public abstract @NotNull Material getMaterial();
     public abstract @NotNull List<Event> getEvents();
 
-    public static void registerMineral(@NotNull Mineral mineral) {
+    public static @NotNull Mineral registerMineral(@NotNull Mineral mineral) {
         REGISTERED_MINERALS.add(mineral);
+        return mineral;
     }
 
     public static @NotNull List<Mineral> getRegisteredMinerals() {

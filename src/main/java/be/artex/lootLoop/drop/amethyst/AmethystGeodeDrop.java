@@ -1,19 +1,18 @@
-package be.artex.lootLoop.drop;
+package be.artex.lootLoop.drop.amethyst;
 
 import be.artex.lootLoop.Items;
-import be.artex.lootLoop.api.items.Item;
 import be.artex.lootLoop.api.events.Drop;
-import be.artex.lootLoop.item.materials.fossil.Fossil;
+import be.artex.lootLoop.api.items.Item;
 import org.jetbrains.annotations.NotNull;
 
-public class FossilDrop extends Drop {
+public class AmethystGeodeDrop extends Drop {
     @Override
     public @NotNull Item getItem() {
-        return Items.FOSSIL;
+        return Items.AMETHYST_GEODE;
     }
 
     @Override
     public float getDropChance() {
-        return 0.7f;
+        return 0.1f;
     }
 }
