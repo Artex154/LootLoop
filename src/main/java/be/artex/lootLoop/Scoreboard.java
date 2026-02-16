@@ -10,11 +10,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import java.text.DecimalFormat;
+
 public class Scoreboard {
+    private static final DecimalFormat DF = new DecimalFormat("#.##");
+
     public static void updateBoard(FastBoard board, Player player) {
         PersistentDataContainer playerPDC = player.getPersistentDataContainer();
-        String minedBlocks = String.valueOf(playerPDC.get(Statistics.MINED_BLOCS, PersistentDataType.LONG));
-        String money = String.valueOf(playerPDC.get(Statistics.MONEY, PersistentDataType.LONG));
+        String minedBlocks = format(playerPDC.get(Statistics.MINED_BLOCS, PersistentDataType.LONG));
+        String money = format(  playerPDC.get(Statistics.MONEY, PersistentDataType.LONG));
 
         board.updateLines(
                 Component.text("          ", TextColor.color(60, 60, 60)).decorate(TextDecoration.STRIKETHROUGH).append(
@@ -34,5 +38,13 @@ public class Scoreboard {
                 Component.text("ʟᴏᴏᴛʟᴏᴏᴘ.ᴍɪɴᴇʜᴜᴛ.ɢɢ", NamedTextColor.GRAY),
                 Component.text("                               ", TextColor.color(NamedTextColor.DARK_GRAY)).decorate(TextDecoration.STRIKETHROUGH)
         );
+    }
+
+    public static String format(long value) {
+        if (value >= 1_000_000)
+            return DF.format(value / 1_000_000.0) + "m";
+        else if (value >= 1_000)
+            return DF.format(value / 1_000.0) + "k";
+        return String.valueOf(value);
     }
 }

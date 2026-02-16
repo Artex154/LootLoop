@@ -1,6 +1,7 @@
 package be.artex.lootLoop.command;
 
 import be.artex.lootLoop.LootLoop;
+import be.artex.lootLoop.Scoreboard;
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.api.items.Item;
 import net.kyori.adventure.text.Component;
@@ -58,7 +59,7 @@ public class Sell implements CommandExecutor {
                                             Component.text(itemName, NamedTextColor.BLUE)).append(
                                                     Component.text(" x" + stack.getAmount(), NamedTextColor.BLUE).append(
                                                             Component.text(" ғᴏʀ ", NamedTextColor.WHITE).append(
-                                                                    Component.text("$" + money, TextColor.color(50, 210, 50)).append(
+                                                                    Component.text("$" + Scoreboard.format(money), TextColor.color(50, 210, 50)).append(
                                                                             Component.text(".")))))))));
         } else {
             player.sendMessage(Component.text("[", TextColor.color(255, 100, 0)).append(
@@ -68,7 +69,7 @@ public class Sell implements CommandExecutor {
                                             Component.text(itemName, NamedTextColor.BLUE)).append(
                                             Component.text(" x" + stack.getAmount(), NamedTextColor.BLUE).append(
                                                     Component.text(" ғᴏʀ ", NamedTextColor.WHITE).append(
-                                                    Component.text("$" + money, TextColor.color(50, 210, 50)).append(
+                                                    Component.text("$" + Scoreboard.format(money), TextColor.color(50, 210, 50)).append(
                                                             Component.text(", ᴘʟᴇᴀsᴇ ʀᴇᴛʏᴘᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴄᴏɴғɪʀᴍ.", NamedTextColor.WHITE)))))))));
 
             confirmation.add(player.getUniqueId());
