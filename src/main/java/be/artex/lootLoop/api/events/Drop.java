@@ -4,15 +4,13 @@ import be.artex.lootLoop.api.items.Item;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class Drop extends Event {
     @Override
-    public void event(@NotNull BlockBreakEvent event) {
-        Player player = event.getPlayer();
-
+    public void event(@NotNull Player player, @NotNull Block block) {
         Component itemName = getItem().getStack().getItemMeta().hasCustomName()
                 ? getItem().getStack().getItemMeta().customName()
                 : Component.text("<null>");
