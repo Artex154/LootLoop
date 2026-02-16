@@ -17,13 +17,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.bukkit.event.block.BlockPlaceEvent;
 
 public class PlayerBlockEvent implements Listener {
-    private static final Map<Location, Material> BLOCKS = new HashMap<>();
-
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
         Player player = event.getPlayer();
@@ -68,6 +64,11 @@ public class PlayerBlockEvent implements Listener {
                     Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
                             Component.text("]", NamedTextColor.RED).append(
                                     Component.text(" ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴛʜᴇ sᴄᴏʀᴇʙᴏᴀʀᴅ. ᴘʟᴇᴀsᴇ ᴅɪsᴄᴏɴɴᴇᴄᴛ ᴀɴᴅ ʀᴇᴄᴏɴɴᴇᴄᴛ.")))));
+    }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        event.setCancelled(true);
     }
 
 }
