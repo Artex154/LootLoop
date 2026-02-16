@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class Redstone extends Mineral {
     @Override
     public @NotNull Material getMaterial() {
-        return Material.REDSTONE;
+        return Material.REDSTONE_ORE;
     }
 
     @Override
