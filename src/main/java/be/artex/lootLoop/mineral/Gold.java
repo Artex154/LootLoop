@@ -13,7 +13,7 @@ import java.util.List;
 public class Gold extends Mineral {
     @Override
     public @NotNull Material getMaterial() {
-        return Material.GOLD_BLOCK;
+        return Material.GOLD_ORE;
     }
 
     @Override
