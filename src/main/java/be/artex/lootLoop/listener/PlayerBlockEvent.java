@@ -1,18 +1,12 @@
 package be.artex.lootLoop.listener;
 
-import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.Statistics;
-import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.Scoreboard;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,35 +17,18 @@ public class PlayerBlockEvent implements Listener {
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
         Player player = event.getPlayer();
+        Block block = event.getBlock();
 
         event.setCancelled(true);
 
-        breakBlock(player, event.getBlock());
-    }
-
-    private static void breakBlock(Player player, Block block) {
-        addMinedBlock(PlayerConnectionEvent.boards.get(player.getUniqueId()), player);
-
-        Material blockMaterial = block.getType();
-        BlockData blockData = block.getBlockData();
-
-        block.setType(Material.BEDROCK);
-
-        Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () -> {
-            block.setType(blockMaterial);
-            block.setBlockData(blockData);
-
-        }, 20*20L);
-
-        Mineral mineral = Mineral.getMineralFromMaterial(blockMaterial);
+        Mineral mineral = Mineral.getMineralFromMaterial(block.getType());
 
         if (mineral == null)
             return;
 
-        Event mineralEvent = Mineral.generateEvent(mineral);
+        mineral.onBreak(player, block);
 
-        if (mineralEvent != null)
-            mineralEvent.event(player, block);
+        addMinedBlock(PlayerConnectionEvent.boards.get(player.getUniqueId()), player);
     }
 
     private static void addMinedBlock(FastBoard board, Player player) {

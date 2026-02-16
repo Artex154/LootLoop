@@ -1,7 +1,11 @@
 package be.artex.lootLoop.api;
 
+import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.api.events.Event;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +15,27 @@ public abstract class Mineral {
     public static final List<Mineral> REGISTERED_MINERALS = new ArrayList<>();
 
     public abstract @NotNull Material getMaterial();
-    public abstract @NotNull List<Event> getEvents();
+
+    public @NotNull List<Event> getEvents() {
+        return List.of();
+    }
+
+    public void onBreak(Player player, Block block) {
+        Event mineralEvent = Mineral.generateEvent(this);
+
+        if (mineralEvent != null)
+            mineralEvent.event(player, block);
+    }
+
+    protected void replaceTemporarily(Block block, Material replacement, long ticks) {
+        Material original = block.getType();
+        block.setType(replacement);
+
+        Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () -> {
+            if (block.getType() == replacement)
+                block.setType(original);
+        }, ticks);
+    }
 
     public static @NotNull Mineral registerMineral(@NotNull Mineral mineral) {
         REGISTERED_MINERALS.add(mineral);
