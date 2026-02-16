@@ -2,6 +2,7 @@ package be.artex.lootLoop.api;
 
 import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.api.events.Event;
+import be.artex.lootLoop.api.items.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -20,7 +21,15 @@ public abstract class Mineral {
         return List.of();
     }
 
+    public @NotNull List<Item> getGuaranteedDrops() {
+        return List.of();
+    }
+
     public void onBreak(Player player, Block block) {
+        for (Item item : getGuaranteedDrops()) {
+            player.give(item.getStack());
+        }
+
         Event mineralEvent = Mineral.generateEvent(this);
 
         if (mineralEvent != null)
