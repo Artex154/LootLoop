@@ -24,7 +24,7 @@ public class Amethyst extends Mineral {
 
     @Override
     public void onBreak(Player player, Block block) {
-        replaceTemporarily(block, Material.BEDROCK, 400);
+        replaceTemporarily(block, Material.BEDROCK, 400, Material.AMETHYST_BLOCK);
 
         super.onBreak(player, block);
     }

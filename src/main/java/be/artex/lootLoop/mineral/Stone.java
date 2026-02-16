@@ -45,7 +45,7 @@ public class Stone extends Mineral {
         Material replacement = generateBlock(new Random().nextFloat(100));
 
         if (replacement == null)
-            replaceTemporarily(block, Material.BEDROCK, 400);
+            replaceTemporarily(block, Material.BEDROCK, 400, Material.STONE);
         else
             block.setType(replacement);
 

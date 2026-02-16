@@ -35,13 +35,12 @@ public abstract class Mineral {
             mineralEvent.event(player, block);
     }
 
-    protected void replaceTemporarily(Block block, Material replacement, long ticks) {
-        Material original = block.getType();
+    protected void replaceTemporarily(Block block, Material replacement, long ticks, Material finalMaterial) {
         block.setType(replacement);
 
         Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () -> {
             if (block.getType() == replacement)
-                block.setType(original);
+                block.setType(finalMaterial);
         }, ticks);
     }
 
