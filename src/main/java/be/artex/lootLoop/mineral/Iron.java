@@ -1,8 +1,8 @@
 package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.api.events.Event;
-import be.artex.lootLoop.drop.iron.IronNuggetDrop;
+import be.artex.lootLoop.api.Drop;
+import be.artex.lootLoop.registry.Items;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class Iron extends Mineral {
     }
 
     @Override
-    public @NotNull List<Event> getEvents() {
-        return List.of(new IronNuggetDrop());
+    public @NotNull List<Drop> getDrops() {
+        return List.of(new Drop(Items.IRON_NUGGET, 5f));
     }
 }

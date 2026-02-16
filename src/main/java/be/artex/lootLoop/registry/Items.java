@@ -1,6 +1,7 @@
-package be.artex.lootLoop;
+package be.artex.lootLoop.registry;
 
 import be.artex.lootLoop.GUI.combining.CombinePossibilty;
+import be.artex.lootLoop.Stacks;
 import be.artex.lootLoop.api.items.Item;
 import org.bukkit.inventory.ItemStack;
 

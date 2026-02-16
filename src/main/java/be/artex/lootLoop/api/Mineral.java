@@ -1,7 +1,6 @@
 package be.artex.lootLoop.api;
 
 import be.artex.lootLoop.LootLoop;
-import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.items.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,7 +16,7 @@ public abstract class Mineral {
 
     public abstract @NotNull Material getMaterial();
 
-    public @NotNull List<Event> getEvents() {
+    public @NotNull List<Drop> getDrops() {
         return List.of();
     }
 
@@ -29,10 +28,10 @@ public abstract class Mineral {
         for (Item item : getGuaranteedDrops())
             player.give(item.getItemStack());
 
-        Event mineralEvent = Mineral.generateEvent(this);
+        Drop drop = Drop.generateDrop(this);
 
-        if (mineralEvent != null)
-            mineralEvent.event(player, block);
+        if (drop != null)
+            drop.drop(player);
     }
 
     protected void replaceTemporarily(Block block, Material replacement, long ticks, Material finalMaterial) {
@@ -60,23 +59,5 @@ public abstract class Mineral {
         }
 
         return null;
-    }
-
-    public static @Nullable Event generateEvent(@NotNull Mineral mineral) {
-       return generateEvent(mineral, new Random().nextFloat(100));
-    }
-
-    public static @Nullable Event generateEvent(@NotNull Mineral mineral, float lootnum) {
-        Event event = null;
-
-        for (Event e : mineral.getEvents()) {
-            if (!(lootnum <= e.getProbability()))
-                continue;
-
-            if (event == null || e.getProbability() < event.getProbability())
-                event = e;
-        }
-
-        return event;
     }
 }

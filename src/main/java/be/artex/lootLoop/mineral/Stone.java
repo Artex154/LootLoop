@@ -1,10 +1,8 @@
 package be.artex.lootLoop.mineral;
 
-import be.artex.lootLoop.api.events.Event;
+import be.artex.lootLoop.api.Drop;
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.drop.stone.FossilDrop;
-import be.artex.lootLoop.drop.stone.HardRockDrop;
-import be.artex.lootLoop.drop.stone.StoneCubeDrop;
+import be.artex.lootLoop.registry.Items;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -36,8 +34,8 @@ public class Stone extends Mineral {
     }
 
     @Override
-    public @NotNull List<Event> getEvents() {
-        return List.of(new StoneCubeDrop(), new HardRockDrop(), new FossilDrop());
+    public @NotNull List<Drop> getDrops() {
+        return List.of(new Drop(Items.STONE_CUBE, 5f), new Drop(Items.HARD_ROCK, 1f), new Drop(Items.FOSSIL, 0.1f));
     }
 
     @Override

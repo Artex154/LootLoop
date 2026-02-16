@@ -1,9 +1,8 @@
 package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.api.events.Event;
-import be.artex.lootLoop.drop.amethyst.AmethystGeodeDrop;
-import be.artex.lootLoop.drop.amethyst.AmethystShardDrop;
+import be.artex.lootLoop.api.Drop;
+import be.artex.lootLoop.registry.Items;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -18,8 +17,8 @@ public class Amethyst extends Mineral {
     }
 
     @Override
-    public @NotNull List<Event> getEvents() {
-        return List.of(new AmethystGeodeDrop(), new AmethystShardDrop());
+    public @NotNull List<Drop> getDrops() {
+        return List.of(new Drop(Items.AMETHYST_GEODE, 0.1f), new Drop(Items.AMETHYST_SHARD, 1f));
     }
 
     @Override

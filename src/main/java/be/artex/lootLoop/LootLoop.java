@@ -3,6 +3,8 @@ package be.artex.lootLoop;
 import be.artex.lootLoop.command.Sell;
 import be.artex.lootLoop.command.Test;
 import be.artex.lootLoop.listener.*;
+import be.artex.lootLoop.registry.Items;
+import be.artex.lootLoop.registry.Minerals;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;

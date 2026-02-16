@@ -1,8 +1,8 @@
 package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.api.events.Event;
-import be.artex.lootLoop.drop.emerald.RecombobulatorDrop;
+import be.artex.lootLoop.api.Drop;
+import be.artex.lootLoop.registry.Items;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class Emerald extends Mineral {
     }
 
     @Override
-    public @NotNull List<Event> getEvents() {
-        return List.of(new RecombobulatorDrop());
+    public @NotNull List<Drop> getDrops() {
+        return List.of(new Drop(Items.RECOMBOBULATOR, 1f));
     }
 }

@@ -1,4 +1,4 @@
-package be.artex.lootLoop;
+package be.artex.lootLoop.registry;
 
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.mineral.*;
