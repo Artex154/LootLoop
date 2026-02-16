@@ -25,7 +25,7 @@ import java.util.UUID;
 public class PlayerConnectionEvent implements Listener {
     public static final Map<UUID, FastBoard> boards = new HashMap<>();
 
-    private static final Location SPAWN_POINT = new Location(Bukkit.getWorlds().getFirst(), 290.5, -40, -91.5, 0, 0);
+    public static final Location SPAWN_POINT = new Location(Bukkit.getWorlds().getFirst(), 290.5, -40, -91.5, 0, 0);
 
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
