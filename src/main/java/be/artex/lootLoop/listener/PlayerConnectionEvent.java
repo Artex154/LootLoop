@@ -1,7 +1,7 @@
 package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.Statistics;
-import be.artex.lootLoop.scoreboard.Scoreboard;
+import be.artex.lootLoop.Scoreboard;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -15,10 +15,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -40,10 +38,10 @@ public class PlayerConnectionEvent implements Listener {
         player.teleport(SPAWN_POINT);
 
         if (!playerPDC.has(Statistics.MINED_BLOCS))
-            playerPDC.set(Statistics.MINED_BLOCS, PersistentDataType.INTEGER, 0);
+            Statistics.setLong(player, Statistics.MINED_BLOCS, 0);
 
         if (!playerPDC.has(Statistics.MONEY))
-            playerPDC.set(Statistics.MONEY, PersistentDataType.INTEGER, 0);
+            Statistics.setLong(player, Statistics.MONEY, 0);
 
         FastBoard board = new FastBoard(player);
 

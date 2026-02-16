@@ -1,6 +1,5 @@
-package be.artex.lootLoop.scoreboard;
+package be.artex.lootLoop;
 
-import be.artex.lootLoop.Statistics;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -14,8 +13,8 @@ import org.bukkit.persistence.PersistentDataType;
 public class Scoreboard {
     public static void updateBoard(FastBoard board, Player player) {
         PersistentDataContainer playerPDC = player.getPersistentDataContainer();
-        int minedBlocks = playerPDC.get(Statistics.MINED_BLOCS, PersistentDataType.INTEGER);
-        String money = String.valueOf(playerPDC.get(Statistics.MONEY, PersistentDataType.INTEGER));
+        String minedBlocks = String.valueOf(playerPDC.get(Statistics.MINED_BLOCS, PersistentDataType.LONG));
+        String money = String.valueOf(playerPDC.get(Statistics.MONEY, PersistentDataType.LONG));
 
         board.updateLines(
                 Component.text("          ", TextColor.color(60, 60, 60)).decorate(TextDecoration.STRIKETHROUGH).append(

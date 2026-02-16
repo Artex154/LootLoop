@@ -12,28 +12,28 @@ public class Statistics {
     public static final NamespacedKey MINED_BLOCS = new NamespacedKey(MAIN, "mined_blocks");
     public static final NamespacedKey MONEY = new NamespacedKey(MAIN, "money");
 
-    public static int getInt(Player player, NamespacedKey key) {
-        return player.getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
+    public static long getLong(Player player, NamespacedKey key) {
+        return player.getPersistentDataContainer().get(key, PersistentDataType.LONG);
     }
 
-    public static int setInt(Player player, NamespacedKey key, int i) {
-        player.getPersistentDataContainer().set(key, PersistentDataType.INTEGER, i);
+    public static long setLong(Player player, NamespacedKey key, long i) {
+        player.getPersistentDataContainer().set(key, PersistentDataType.LONG, i);
 
         return i;
     }
 
-    public static int addInt(Player player, NamespacedKey key, int i) {
-        int m = getInt(player, key) + i;
+    public static long addLong(Player player, NamespacedKey key, long i) {
+        long m = getLong(player, key) + i;
 
-        setInt(player, key, m);
+        setLong(player, key, m);
 
         return m;
     }
 
-    public static int removeInt(Player player, NamespacedKey key, int i) {
-        int m = getInt(player, key) - i;
+    public static long removeLong(Player player, NamespacedKey key, long i) {
+        long m = getLong(player, key) - i;
 
-        setInt(player, key, m);
+        setLong(player, key, m);
 
         return m;
     }

@@ -4,7 +4,7 @@ import be.artex.lootLoop.LootLoop;
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.api.events.Event;
 import be.artex.lootLoop.api.Mineral;
-import be.artex.lootLoop.scoreboard.Scoreboard;
+import be.artex.lootLoop.Scoreboard;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -12,7 +12,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -60,7 +59,7 @@ public class PlayerBlockEvent implements Listener {
     }
 
     private static void addMinedBlock(FastBoard board, Player player) {
-        Statistics.addInt(player, Statistics.MINED_BLOCS, 1);
+        Statistics.addLong(player, Statistics.MINED_BLOCS, 1);
 
         if (board != null)
             Scoreboard.updateBoard(board, player);

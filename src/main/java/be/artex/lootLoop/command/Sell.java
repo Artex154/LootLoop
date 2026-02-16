@@ -38,7 +38,7 @@ public class Sell implements CommandExecutor {
         }
 
         String itemName = "<null>";
-        int money = stack.getAmount() * item.getSellMoney();
+        long money = stack.getAmount() * item.getSellMoney();
 
         if (stack.getItemMeta().hasCustomName()) {
             Component component = stack.getItemMeta().customName();
@@ -48,7 +48,7 @@ public class Sell implements CommandExecutor {
         if (confirmation.contains(player.getUniqueId())) {
             player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
 
-            Statistics.addInt(player, Statistics.MONEY, money);
+            Statistics.addLong(player, Statistics.MONEY, money);
             confirmation.remove(player.getUniqueId());
 
             player.sendMessage(Component.text("[", TextColor.color(255, 100, 0)).append(
