@@ -1,6 +1,9 @@
 package be.artex.lootLoop;
 
 import be.artex.lootLoop.api.items.Item;
+import be.artex.lootLoop.item.diamond.DiamondShard;
+import be.artex.lootLoop.item.gold.GoldNugget;
+import be.artex.lootLoop.item.iron.IronNugget;
 import be.artex.lootLoop.item.materials.amethyst.AmethystGeode;
 import be.artex.lootLoop.item.materials.amethyst.AmethystShard;
 import be.artex.lootLoop.item.materials.stone.fossil.Fossil;
@@ -17,6 +20,9 @@ public class Items {
     public static final Item RECOMBOBULATOR = Item.registerItem(new Recombobulator());
     public static final Item AMETHYST_GEODE = Item.registerItem(new AmethystGeode());
     public static final Item AMETHYST_SHARD = Item.registerItem(new AmethystShard());
+    public static final Item GOLD_NUGGET = Item.registerItem(new GoldNugget());
+    public static final Item IRON_NUGGET = Item.registerItem(new IronNugget());
+    public static final Item DIAMOND_SHARD = Item.registerItem(new DiamondShard());
 
     public static void register() {
     }
