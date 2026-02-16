@@ -2,8 +2,6 @@ package be.artex.lootLoop.api.items;
 
 import be.artex.lootLoop.GUI.combining.CombinePossibilty;
 import org.bukkit.Material;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nullable;
@@ -12,29 +10,47 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Item {
+public class Item {
     private static final List<Item> REGISTERED_ITEMS = new ArrayList<>();
 
-    public abstract String getItemId();
-    public abstract ItemStack getStack();
-    public abstract int getSellMoney();
+    private final String itemID;
+    private final ItemStack stack;
+    private final long sellMoney;
+    private final List<CombinePossibilty> combinePossibilties;
 
-    public List<CombinePossibilty> getCombinePossibilities() {
-        return List.of();
+    public Item(String id, ItemStack stack, long sellMoney) {
+        this.itemID = id;
+        this.stack = stack;
+        this.sellMoney = sellMoney;
+        this.combinePossibilties = List.of();
     }
 
-    public void onHit(Player damager, Player target) {
+    public Item(String id, ItemStack stack, long sellMoney, List<CombinePossibilty> combinePossibilties) {
+        this.itemID = id;
+        this.stack = stack;
+        this.sellMoney = sellMoney;
+        this.combinePossibilties = combinePossibilties;
     }
 
-    public void onClick(Player player, ItemStack stack) {
+    public String getItemID() {
+        return itemID;
     }
 
-    public void onClickAtEntity(Player player, ItemStack stack, Entity entity) {
+    public ItemStack getItemStack() {
+        return stack.clone();
     }
 
-    public static Item registerItem(Item item) {
-        REGISTERED_ITEMS.add(item);
-        return item;
+    public long getSellMoney() {
+        return sellMoney;
+    }
+
+    public List<CombinePossibilty> getCombinePossibilties() {
+        return combinePossibilties;
+    }
+
+    public Item register() {
+        REGISTERED_ITEMS.add(this);
+        return this;
     }
 
     public static List<Item> getRegisteredItems() {
@@ -46,7 +62,7 @@ public abstract class Item {
             return null;
 
         for (Item item : REGISTERED_ITEMS) {
-            if (Objects.equals(item.getStack().getItemMeta(), stack.getItemMeta()))
+            if (Objects.equals(item.getItemStack().getItemMeta(), stack.getItemMeta()))
                 return item;
         }
 
@@ -58,7 +74,7 @@ public abstract class Item {
             return null;
 
         for (Item item : REGISTERED_ITEMS) {
-            if (!item.getItemId().equalsIgnoreCase(id))
+            if (!item.getItemID().equalsIgnoreCase(id))
                 continue;
 
             return item;

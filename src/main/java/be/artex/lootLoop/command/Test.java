@@ -22,7 +22,7 @@ public class Test implements CommandExecutor {
         Item item = Item.getItemFromId(args[0]);
 
         if (item != null)
-            player.getInventory().addItem(item.getStack());
+            player.getInventory().addItem(item.getItemStack());
 
         return true;
     }

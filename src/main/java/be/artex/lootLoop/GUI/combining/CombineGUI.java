@@ -31,13 +31,13 @@ public class CombineGUI {
         if (firstItem == null || secondItem == null)
             return Stacks.NO_RESULT;
 
-        return firstItem.getCombinePossibilities().stream()
+        return firstItem.getCombinePossibilties().stream()
                 .filter(p -> {
                     Item[] params = p.getParams();
                     return secondItem.equals(params[0]) || secondItem.equals(params[1]);
                 })
                 .findFirst()
-                .map(p -> p.getResult().getStack())
+                .map(p -> p.getResult().getItemStack())
                 .orElse(Stacks.NO_RESULT);
     }
 

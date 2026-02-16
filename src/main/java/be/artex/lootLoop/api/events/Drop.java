@@ -11,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
 public abstract class Drop extends Event {
     @Override
     public void event(@NotNull Player player, @NotNull Block block) {
-        Component itemName = getItem().getStack().getItemMeta().hasCustomName()
-                ? getItem().getStack().getItemMeta().customName()
+        Component itemName = getItem().getItemStack().getItemMeta().hasCustomName()
+                ? getItem().getItemStack().getItemMeta().customName()
                 : Component.text("<null>");
 
         player.sendMessage(
@@ -22,7 +22,7 @@ public abstract class Drop extends Event {
                         .append(Component.text(" (" + getDropChance() + "%).", NamedTextColor.GOLD))
         );
 
-        player.getInventory().addItem(getItem().getStack());
+        player.getInventory().addItem(getItem().getItemStack());
     }
 
     @Override
