@@ -26,9 +26,8 @@ public abstract class Mineral {
     }
 
     public void onBreak(Player player, Block block) {
-        for (Item item : getGuaranteedDrops()) {
+        for (Item item : getGuaranteedDrops())
             player.give(item.getStack());
-        }
 
         Event mineralEvent = Mineral.generateEvent(this);
 
