@@ -31,7 +31,7 @@ public class CombineGUI {
         if (firstItem == null || secondItem == null)
             return Stacks.NO_RESULT;
 
-        return firstItem.getCombinePossibilties().stream()
+        return firstItem.getCombinePossibilities().stream()
                 .filter(p -> {
                     Item[] params = p.getParams();
                     return secondItem.equals(params[0]) || secondItem.equals(params[1]);

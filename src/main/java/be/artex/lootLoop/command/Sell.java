@@ -30,7 +30,7 @@ public class Sell implements CommandExecutor {
         ItemStack stack = player.getInventory().getItemInMainHand();
         Item item = Item.getItemFromStack(stack);
 
-        if (item == null || item.getSellMoney() == 0) {
+        if (item == null || item.getSellValue() == 0) {
             player.sendMessage(Component.text("[", NamedTextColor.RED).append(
                     Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
                             Component.text("]", NamedTextColor.RED).append(
@@ -39,7 +39,7 @@ public class Sell implements CommandExecutor {
         }
 
         String itemName = "<null>";
-        long money = stack.getAmount() * item.getSellMoney();
+        long money = stack.getAmount() * item.getSellValue();
 
         if (stack.getItemMeta().hasCustomName()) {
             Component component = stack.getItemMeta().customName();

@@ -15,21 +15,24 @@ public class Item {
 
     private final String itemID;
     private final ItemStack stack;
-    private final long sellMoney;
-    private final List<CombinePossibilty> combinePossibilties;
 
-    public Item(String id, ItemStack stack, long sellMoney) {
+    private long sellValue = 0;
+    private List<CombinePossibilty> combinePossibilities = List.of();
+
+    public Item(String id, ItemStack stack, Properties properties) {
         this.itemID = id;
         this.stack = stack;
-        this.sellMoney = sellMoney;
-        this.combinePossibilties = List.of();
+        this.sellValue = properties.sellValue;
+        this.combinePossibilities = properties.combinePossibilities;
     }
 
-    public Item(String id, ItemStack stack, long sellMoney, List<CombinePossibilty> combinePossibilties) {
+    public Item(String id, ItemStack stack) {
+        Properties properties = new Properties();
+
         this.itemID = id;
         this.stack = stack;
-        this.sellMoney = sellMoney;
-        this.combinePossibilties = combinePossibilties;
+        this.sellValue = properties.sellValue;
+        this.combinePossibilities = properties.combinePossibilities;
     }
 
     public String getItemID() {
@@ -40,12 +43,12 @@ public class Item {
         return stack.clone();
     }
 
-    public long getSellMoney() {
-        return sellMoney;
+    public long getSellValue() {
+        return this.sellValue;
     }
 
-    public List<CombinePossibilty> getCombinePossibilties() {
-        return combinePossibilties;
+    public List<CombinePossibilty> getCombinePossibilities() {
+        return Collections.unmodifiableList(this.combinePossibilities);
     }
 
     public Item register() {
@@ -81,5 +84,27 @@ public class Item {
         }
 
         return null;
+    }
+
+    public static class Properties {
+        private long sellValue = 0;
+        private final List<CombinePossibilty> combinePossibilities = List.of();
+
+        private Properties() {
+        }
+
+        public static Item.Properties create() {
+            return new Properties();
+        }
+
+        public Item.Properties sellValue(long sellValue) {
+            this.sellValue = sellValue;
+            return this;
+        }
+
+        public Item.Properties combinePossibilities(CombinePossibilty... possibilities) {
+            combinePossibilities.addAll(List.of(possibilities));
+            return this;
+        }
     }
 }
