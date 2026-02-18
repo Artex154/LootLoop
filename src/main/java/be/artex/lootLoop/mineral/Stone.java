@@ -19,13 +19,13 @@ public class Stone extends Mineral {
     private static final Map<Material, Float> STONE_REPLACEMENT_PERCENTAGES = new HashMap<>();
 
     static {
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.COAL_ORE, 2f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.IRON_AXE, 1.5f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.GOLD_ORE, 1.35f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.LAPIS_ORE, 1.25f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.REDSTONE_ORE, 1.1f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.DIAMOND_ORE, 0.9f);
-        STONE_REPLACEMENT_PERCENTAGES.put(Material.EMERALD_ORE, 0.7f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.COAL_ORE, 7.5f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.IRON_AXE, 5f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.GOLD_ORE, 3.75f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.LAPIS_ORE, 3.42f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.REDSTONE_ORE, 3f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.DIAMOND_ORE, 2f);
+        STONE_REPLACEMENT_PERCENTAGES.put(Material.EMERALD_ORE, 1.5f);
     }
 
     @Override
