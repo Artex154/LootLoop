@@ -20,16 +20,15 @@ public final class LootLoop extends JavaPlugin {
         instance = this;
         world = Bukkit.getWorlds().getFirst();
 
-        Bukkit.getPluginManager().registerEvents(new PlayerConnectionEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerBlockEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInteract(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClick(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerDeathEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new FoodLevelChange(), this);
+        gameRulesSetup(world);
+        commandsSetup();
+        listenersSetup();
 
-        getCommand("sell").setExecutor(new Sell());
-        getCommand("test").setExecutor(new Test());
+        Items.register();
+        Minerals.register();
+    }
 
+    private void gameRulesSetup(World world) {
         world.setGameRule(GameRules.PVP, false);
         world.setGameRule(GameRules.ADVANCE_TIME, false);
         world.setGameRule(GameRules.ADVANCE_WEATHER, false);
@@ -48,9 +47,20 @@ public final class LootLoop extends JavaPlugin {
         world.setGameRule(GameRules.SPAWN_PHANTOMS, false);
         world.setGameRule(GameRules.SPAWNER_BLOCKS_WORK, false);
         world.setGameRule(GameRules.TNT_EXPLODES, false);
+    }
 
-        Items.register();
-        Minerals.register();
+    public void commandsSetup() {
+        getCommand("sell").setExecutor(new Sell());
+        getCommand("test").setExecutor(new Test());
+    }
+
+    public void listenersSetup() {
+        Bukkit.getPluginManager().registerEvents(new PlayerConnectionEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerBlockEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteract(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClick(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDeathEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new FoodLevelChange(), this);
     }
 
     public static Plugin getInstance() {

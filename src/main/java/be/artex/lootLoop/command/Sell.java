@@ -46,11 +46,8 @@ public class Sell implements CommandExecutor {
             itemName = PlainTextComponentSerializer.plainText().serialize(component);
         }
 
-        if (confirmation.contains(player.getUniqueId())) {
-            player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-
-            Statistics.addLong(player, Statistics.MONEY, money);
-            confirmation.remove(player.getUniqueId());
+        if (isInConfirmation(player)) {
+            sellLogic(player, money);
 
             player.sendMessage(Component.text("[", TextColor.color(255, 100, 0)).append(
                     Component.text("ʟᴏᴏᴛʟᴏᴏᴘ", NamedTextColor.GOLD).append(
@@ -72,12 +69,32 @@ public class Sell implements CommandExecutor {
                                                     Component.text("$" + Scoreboard.format(money), TextColor.color(50, 210, 50)).append(
                                                             Component.text(", ᴘʟᴇᴀsᴇ ʀᴇᴛʏᴘᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴄᴏɴғɪʀᴍ.", NamedTextColor.WHITE)))))))));
 
-            confirmation.add(player.getUniqueId());
-
-            Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () ->
-                    confirmation.remove(player.getUniqueId()), 5*20L);
+            addToConfirmation(player);
         }
 
         return true;
+    }
+
+    private static void sellLogic(Player player, long money) {
+        player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+        Statistics.addLong(player, Statistics.MONEY, money);
+        removeFromConfirmation(player);
+    }
+
+    private static void addToConfirmation(Player player) {
+        UUID playerUUID = player.getUniqueId();
+
+        confirmation.add(playerUUID);
+
+        Bukkit.getScheduler().runTaskLater(LootLoop.getInstance(), () ->
+                confirmation.remove(playerUUID), 5*20L);
+    }
+
+    private static void removeFromConfirmation(Player player) {
+        confirmation.remove(player.getUniqueId());
+    }
+
+    private static boolean isInConfirmation(Player player) {
+        return confirmation.contains(player.getUniqueId());
     }
 }
