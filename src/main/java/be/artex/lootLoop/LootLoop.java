@@ -25,6 +25,7 @@ public final class LootLoop extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerInteract(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClick(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDeathEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new FoodLevelChange(), this);
 
         getCommand("sell").setExecutor(new Sell());
         getCommand("test").setExecutor(new Test());
