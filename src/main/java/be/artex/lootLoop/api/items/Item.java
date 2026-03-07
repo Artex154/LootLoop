@@ -3,6 +3,7 @@ package be.artex.lootLoop.api.items;
 import be.artex.lootLoop.GUI.combining.CombinePossibilty;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -18,12 +19,14 @@ public class Item {
 
     private long sellValue = 0;
     private List<CombinePossibilty> combinePossibilities = List.of();
+    private ToolProperties toolProperties = null;
 
     public Item(String id, ItemStack stack, Properties properties) {
         this.itemID = id;
         this.stack = stack;
         this.sellValue = properties.sellValue;
         this.combinePossibilities = properties.combinePossibilities;
+        this.toolProperties = properties.toolProperties;
     }
 
     public Item(String id, ItemStack stack) {
@@ -49,6 +52,18 @@ public class Item {
 
     public List<CombinePossibilty> getCombinePossibilities() {
         return Collections.unmodifiableList(this.combinePossibilities);
+    }
+
+    public int getMiningSpeed() {
+        return this.toolProperties.miningSpeed();
+    }
+
+    public int getMiningFortune() {
+        return this.toolProperties.miningFortune();
+    }
+
+    public boolean isTool() {
+        return this.toolProperties != null;
     }
 
     public Item register() {
@@ -89,6 +104,7 @@ public class Item {
     public static class Properties {
         private long sellValue = 0;
         private final List<CombinePossibilty> combinePossibilities = List.of();
+        private ToolProperties toolProperties = null;
 
         private Properties() {
         }
@@ -102,8 +118,13 @@ public class Item {
             return this;
         }
 
-        public Item.Properties combinePossibilities(CombinePossibilty... possibilities) {
+        public Item.Properties combinePossibilities(@NotNull CombinePossibilty... possibilities) {
             combinePossibilities.addAll(List.of(possibilities));
+            return this;
+        }
+
+        public Item.Properties tool(ToolProperties properties) {
+            this.toolProperties = properties;
             return this;
         }
     }
