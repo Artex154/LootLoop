@@ -23,10 +23,8 @@ public class PlayerBlockEvent implements Listener {
 
         Mineral mineral = Mineral.getMineralFromMaterial(block.getType());
 
-        if (mineral == null)
-            return;
-
-        mineral.onBreak(player, block);
+        if (mineral != null)
+            mineral.onBreak(player, block);
 
         addMinedBlock(PlayerConnectionEvent.boards.get(player.getUniqueId()), player);
     }

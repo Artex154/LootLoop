@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +28,7 @@ public class Drop {
         return probabilty;
     }
 
-    public void drop(@NotNull Player player) {
+    public void drop(@NotNull Player player, double fortuneMultiplier) {
         Component itemName = this.item.getItemStack().getItemMeta().hasCustomName()
                 ? this.item.getItemStack().getItemMeta().customName()
                 : Component.text("<null>");
@@ -39,7 +40,10 @@ public class Drop {
                         .append(Component.text(" (" + this.probabilty + "%).", NamedTextColor.GOLD))
         );
 
-        player.getInventory().addItem(getItem().getItemStack());
+        ItemStack stack = getItem().getItemStack();
+        applyFortuneMultiplier(stack, fortuneMultiplier);
+
+        player.getInventory().addItem(stack);
     }
 
     public static @Nullable Drop generateDrop(@NotNull Mineral mineral) {
@@ -58,5 +62,19 @@ public class Drop {
         }
 
         return drop;
+    }
+
+    protected void applyFortuneMultiplier(@NotNull ItemStack stack, double miningFortune) {
+        miningFortune = miningFortune / 100;
+        int integerPart = (int) miningFortune;
+        double decimalPart = miningFortune - integerPart;
+
+        Random random = new Random();
+        float lootnum = random.nextFloat();
+
+        if (decimalPart > lootnum)
+            integerPart += 1;
+
+        stack.setAmount(integerPart);
     }
 }

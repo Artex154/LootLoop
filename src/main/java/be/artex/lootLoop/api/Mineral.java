@@ -30,8 +30,14 @@ public abstract class Mineral {
 
         Drop drop = Drop.generateDrop(this);
 
+        Item item = Item.getItemFromStack(player.getInventory().getItemInMainHand());
+
+        if (drop != null && item != null && item.isTool())
+            drop.drop(player, item.getMiningFortune());
+        else if (drop != null) drop.drop(player, 0);
+
         if (drop != null)
-            drop.drop(player);
+            drop.drop(player, 0);
     }
 
     protected void replaceTemporarily(Block block, Material replacement, long ticks, Material finalMaterial) {
