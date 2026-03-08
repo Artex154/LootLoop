@@ -3,7 +3,7 @@ package be.artex.lootLoop.registry;
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.mineral.*;
 
-public class Minerals {
+public class MineralRegistry {
     public static final Mineral STONE = Mineral.registerMineral(new Stone());
     public static final Mineral AMETHYST = Mineral.registerMineral(new Amethyst());
     public static final Mineral COAL = Mineral.registerMineral(new Coal());

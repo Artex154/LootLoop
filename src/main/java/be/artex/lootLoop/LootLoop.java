@@ -3,8 +3,8 @@ package be.artex.lootLoop;
 import be.artex.lootLoop.command.Sell;
 import be.artex.lootLoop.command.Test;
 import be.artex.lootLoop.listener.*;
-import be.artex.lootLoop.registry.Items;
-import be.artex.lootLoop.registry.Minerals;
+import be.artex.lootLoop.registry.ItemRegistry;
+import be.artex.lootLoop.registry.MineralRegistry;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRules;
 import org.bukkit.World;
@@ -24,8 +24,8 @@ public final class LootLoop extends JavaPlugin {
         commandsSetup();
         listenersSetup();
 
-        Items.register();
-        Minerals.register();
+        ItemRegistry.register();
+        MineralRegistry.register();
     }
 
     private void gameRulesSetup(World world) {

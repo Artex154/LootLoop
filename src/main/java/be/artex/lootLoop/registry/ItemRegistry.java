@@ -4,7 +4,7 @@ import be.artex.lootLoop.Stacks;
 import be.artex.lootLoop.api.items.Item;
 import org.bukkit.inventory.ItemStack;
 
-public class Items {
+public class ItemRegistry {
     public static final Item STONE_CUBE = registerSimpleItem("stone_cube", Stacks.STONE_CUBE, Item.Properties.create().sellValue(20)).register();
     public static final Item HARD_ROCK = registerSimpleItem("hard_rock", Stacks.HARD_ROCK, Item.Properties.create().sellValue(100)).register();
     public static final Item FOSSIL = registerSimpleItem("fossil", Stacks.FOSSIL, Item.Properties.create().sellValue(1000)).register();
@@ -14,7 +14,7 @@ public class Items {
     public static final Item GOLD_NUGGET = registerSimpleItem("gold_nugget", Stacks.GOLD_NUGGET, Item.Properties.create().sellValue(7500));
     public static final Item IRON_NUGGET = registerSimpleItem("iron_nugget", Stacks.IRON_NUGGET, Item.Properties.create().sellValue(6000));
     public static final Item DIAMOND_SHARD = registerSimpleItem("diamond_shard", Stacks.DIAMOND_SHARD, Item.Properties.create().sellValue(11500));
-    
+
     private static Item registerSimpleItem(String ID, ItemStack stack, Item.Properties properties) {
         Item item = new Item(ID, stack, properties);
         item.register();

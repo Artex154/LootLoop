@@ -2,7 +2,7 @@ package be.artex.lootLoop.mineral;
 
 import be.artex.lootLoop.api.Mineral;
 import be.artex.lootLoop.api.Drop;
-import be.artex.lootLoop.registry.Items;
+import be.artex.lootLoop.registry.ItemRegistry;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -25,6 +25,6 @@ public class Iron extends Mineral {
 
     @Override
     public @NotNull List<Drop> getDrops() {
-        return List.of(new Drop(Items.IRON_NUGGET, 5f));
+        return List.of(new Drop(ItemRegistry.IRON_NUGGET, 5f));
     }
 }
