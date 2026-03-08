@@ -17,8 +17,8 @@ public class Item {
     private final String itemID;
     private final ItemStack stack;
 
-    private long sellValue = 0;
-    private List<CombinePossibilty> combinePossibilities = List.of();
+    private long sellValue;
+    private List<CombinePossibilty> combinePossibilities;
     private ToolProperties toolProperties = null;
 
     public Item(String id, ItemStack stack, Properties properties) {

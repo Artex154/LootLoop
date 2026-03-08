@@ -59,10 +59,9 @@ public abstract class Mineral {
     }
 
     public static @Nullable Mineral getMineralFromMaterial(@NotNull Material material) {
-        for (Mineral mineral : REGISTERED_MINERALS) {
+        for (Mineral mineral : REGISTERED_MINERALS)
             if (mineral.getMaterial() == material)
                 return mineral;
-        }
 
         return null;
     }

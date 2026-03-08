@@ -25,7 +25,6 @@ public class ItemBuilder {
     private Component name = Component.empty();
     private final List<Component> description = new ArrayList<>();
     private int miningSpeed = 0;
-    private int miningFortune = 0;
 
     public ItemBuilder(ItemStack stack, ItemRarity rarity) {
         this.stack = stack.clone();
@@ -60,7 +59,7 @@ public class ItemBuilder {
 
     public ItemBuilder tool(ToolProperties properties) {
         this.miningSpeed = properties.miningSpeed();
-        this.miningFortune = properties.miningFortune();
+        int miningFortune = properties.miningFortune();
 
         this.stack.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
@@ -68,8 +67,8 @@ public class ItemBuilder {
             this.description.add(Component.text("+" + this.miningSpeed, NamedTextColor.GOLD).append(
                     Component.text(" ᴍɪɴɪɴɢ sᴘᴇᴇᴅ.", NamedTextColor.GRAY)));
 
-        if (this.miningFortune != 0)
-            this.description.add(Component.text("+" + this.miningFortune, NamedTextColor.GOLD).append(
+        if (miningFortune != 0)
+            this.description.add(Component.text("+" + miningFortune, NamedTextColor.GOLD).append(
                     Component.text(" ᴍɪɴɪɴɢ ғᴏʀᴛᴜɴᴇ.", NamedTextColor.GRAY)));
 
         return this;
