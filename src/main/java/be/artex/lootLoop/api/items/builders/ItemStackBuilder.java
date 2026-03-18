@@ -5,6 +5,7 @@ import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,25 +19,25 @@ public class ItemStackBuilder {
         this.stack = stack;
     }
 
-    public static ItemStackBuilder create(ItemStack stack) {
+    public static ItemStackBuilder create(@NotNull ItemStack stack) {
         return new ItemStackBuilder(stack);
     }
 
-    public static ItemStackBuilder create(Material material) {
+    public static ItemStackBuilder create(@NotNull Material material) {
         return create(new ItemStack(material));
     }
 
-    public ItemStackBuilder name(Component name) {
+    public ItemStackBuilder name(@NotNull Component name) {
         this.name = name;
         return this;
     }
 
-    public ItemStackBuilder name(String name) {
+    public ItemStackBuilder name(@NotNull String name) {
         this.name = Component.text(name);
         return this;
     }
 
-    public ItemStackBuilder lore(Component... lore) {
+    public ItemStackBuilder lore(@NotNull Component... lore) {
         List<Component> l = new ArrayList<>();
 
         for (Component s : lore) {
@@ -48,7 +49,7 @@ public class ItemStackBuilder {
         return this;
     }
 
-    public ItemStackBuilder lore(List<Component> lore) {
+    public ItemStackBuilder lore(@NotNull List<Component> lore) {
         List<Component> l = new ArrayList<>();
 
         for (Component s : lore) {

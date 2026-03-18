@@ -3,6 +3,7 @@ package be.artex.lootLoop.api.items;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
+import org.jetbrains.annotations.NotNull;
 
 public enum ItemRarity {
     COMMON("ᴄᴏᴍᴍᴏɴ ɪᴛᴇᴍ", NamedTextColor.WHITE),
@@ -22,15 +23,15 @@ public enum ItemRarity {
         this.displayText = Component.text(this.text, this.color);
     }
 
-    public Component getDisplayText() {
+    public @NotNull Component getDisplayText() {
         return displayText;
     }
 
-    public TextColor getColor() {
+    public @NotNull TextColor getColor() {
         return color;
     }
 
-    public String getText() {
+    public @NotNull String getText() {
         return text;
     }
 }

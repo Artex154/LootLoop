@@ -50,7 +50,7 @@ public class Item {
         return this.sellValue;
     }
 
-    public List<CombinePossibilty> getCombinePossibilities() {
+    public @NotNull List<CombinePossibilty> getCombinePossibilities() {
         return Collections.unmodifiableList(this.combinePossibilities);
     }
 
@@ -71,7 +71,7 @@ public class Item {
         return this;
     }
 
-    public static List<Item> getRegisteredItems() {
+    public static @NotNull List<Item> getRegisteredItems() {
         return Collections.unmodifiableList(REGISTERED_ITEMS);
     }
 

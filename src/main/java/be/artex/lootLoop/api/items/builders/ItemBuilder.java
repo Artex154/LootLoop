@@ -14,6 +14,7 @@ import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.inventory.EquipmentSlotGroup;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,33 +32,33 @@ public class ItemBuilder {
         this.rarity = rarity;
     }
 
-    public static ItemBuilder create(ItemStack stack, ItemRarity rarity) {
+    public static ItemBuilder create(@NotNull ItemStack stack, @NotNull ItemRarity rarity) {
         return new ItemBuilder(stack, rarity);
     }
 
-    public static ItemBuilder create(Material material, ItemRarity rarity) {
+    public static ItemBuilder create(@NotNull Material material, @NotNull ItemRarity rarity) {
         return new ItemBuilder(new ItemStack(material), rarity);
     }
 
-    public static ItemBuilder create(ItemStack stack) {
+    public static ItemBuilder create(@NotNull ItemStack stack) {
         return new ItemBuilder(stack, ItemRarity.COMMON);
     }
 
-    public static ItemBuilder create(Material material) {
+    public static ItemBuilder create(@NotNull Material material) {
         return new ItemBuilder(new ItemStack(material), ItemRarity.COMMON);
     }
 
-    public ItemBuilder name(String name) {
+    public ItemBuilder name(@NotNull String name) {
         this.name = Component.text(name, this.rarity.getColor());
         return this;
     }
 
-    public ItemBuilder description(Component... description) {
+    public ItemBuilder description(@NotNull Component... description) {
         Collections.addAll(this.description, description);
         return this;
     }
 
-    public ItemBuilder tool(ToolProperties properties) {
+    public ItemBuilder tool(@NotNull ToolProperties properties) {
         this.miningSpeed = properties.miningSpeed();
         int miningFortune = properties.miningFortune();
 
@@ -74,7 +75,7 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemStack build() {
+    public @NotNull ItemStack build() {
         AttributeModifier miningSpeedModifier = new AttributeModifier(
                 new NamespacedKey("lootloop", "mining_speed"),
                 this.miningSpeed,
