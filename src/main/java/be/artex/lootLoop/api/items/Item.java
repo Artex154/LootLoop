@@ -1,6 +1,5 @@
 package be.artex.lootLoop.api.items;
 
-import be.artex.lootLoop.GUI.combining.CombinePossibilty;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -18,14 +17,12 @@ public class Item {
     private final ItemStack stack;
 
     private long sellValue;
-    private List<CombinePossibilty> combinePossibilities;
     private ToolProperties toolProperties = null;
 
     public Item(String id, ItemStack stack, Properties properties) {
         this.itemID = id;
         this.stack = stack;
         this.sellValue = properties.sellValue;
-        this.combinePossibilities = properties.combinePossibilities;
         this.toolProperties = properties.toolProperties;
     }
 
@@ -35,7 +32,6 @@ public class Item {
         this.itemID = id;
         this.stack = stack;
         this.sellValue = properties.sellValue;
-        this.combinePossibilities = properties.combinePossibilities;
     }
 
     public String getItemID() {
@@ -48,10 +44,6 @@ public class Item {
 
     public long getSellValue() {
         return this.sellValue;
-    }
-
-    public @NotNull List<CombinePossibilty> getCombinePossibilities() {
-        return Collections.unmodifiableList(this.combinePossibilities);
     }
 
     public int getMiningSpeed() {
@@ -103,7 +95,6 @@ public class Item {
 
     public static class Properties {
         private long sellValue = 0;
-        private final List<CombinePossibilty> combinePossibilities = List.of();
         private ToolProperties toolProperties = null;
 
         private Properties() {
@@ -115,11 +106,6 @@ public class Item {
 
         public Item.Properties sellValue(long sellValue) {
             this.sellValue = sellValue;
-            return this;
-        }
-
-        public Item.Properties combinePossibilities(@NotNull CombinePossibilty... possibilities) {
-            combinePossibilities.addAll(List.of(possibilities));
             return this;
         }
 

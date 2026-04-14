@@ -24,7 +24,8 @@ public final class LootLoop extends JavaPlugin {
         commandsSetup();
         listenersSetup();
 
-        ItemRegistry.register();
+        ItemRegistry.initialize();
+        ItemRegistry.registerAllCombinePossibilities();
         MineralRegistry.register();
     }
 
@@ -58,7 +59,7 @@ public final class LootLoop extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerConnectionEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerBlockEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteract(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClick(), this);
+        // Bukkit.getPluginManager().registerEvents(new InventoryClick(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDeathEvent(), this);
         Bukkit.getPluginManager().registerEvents(new FoodLevelChange(), this);
     }

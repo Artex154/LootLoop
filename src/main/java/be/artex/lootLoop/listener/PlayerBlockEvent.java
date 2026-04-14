@@ -43,7 +43,8 @@ public class PlayerBlockEvent implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
-        event.setCancelled(true);
+        if (!event.getPlayer().isOp())
+            event.setCancelled(true);
     }
 
 }

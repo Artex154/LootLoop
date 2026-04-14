@@ -1,6 +1,6 @@
 package be.artex.lootLoop.listener;
 
-import be.artex.lootLoop.GUI.combining.CombineGUI;
+import be.artex.lootLoop.GUI.combining.CombineGUINew;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -16,7 +16,7 @@ public class PlayerInteract implements Listener {
 
         if (block != null && block.getType().equals(Material.SMITHING_TABLE)) {
             event.setCancelled(true);
-            player.openInventory(CombineGUI.getInventory());
+            CombineGUINew.openInventory(player);
         }
 
     }

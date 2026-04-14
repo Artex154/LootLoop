@@ -2,7 +2,12 @@ package be.artex.lootLoop.GUI.combining;
 
 import be.artex.lootLoop.api.items.Item;
 
+import java.util.Collections;
+import java.util.List;
+
 public class CombinePossibilty {
+    private static final List<CombinePossibilty> COMBINE_POSSIBILTIES = List.of();
+
     private final Item item1;
     private final Item item2;
     private final Item result;
@@ -19,5 +24,13 @@ public class CombinePossibilty {
 
     public Item[] getParams() {
         return new Item[]{item1, item2};
+    }
+
+    public static void registerPossibility(CombinePossibilty possibilty) {
+        COMBINE_POSSIBILTIES.add(possibilty);
+    }
+
+    public static List<CombinePossibilty> getCombinePossibilties() {
+        return Collections.unmodifiableList(COMBINE_POSSIBILTIES);
     }
 }
