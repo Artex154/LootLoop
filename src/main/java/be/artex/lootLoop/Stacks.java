@@ -3,6 +3,7 @@ package be.artex.lootLoop;
 import be.artex.lootLoop.api.items.ItemRarity;
 import be.artex.lootLoop.api.items.builders.ItemBuilder;
 import be.artex.lootLoop.api.items.builders.ItemStackBuilder;
+import be.artex.lootLoop.registry.ToolPropertiesRegistry;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
@@ -67,6 +68,11 @@ public class Stacks {
 
     public static final ItemStack DIAMOND_SHARD = ItemBuilder.create(Material.PRISMARINE_SHARD, ItemRarity.UNCOMMON)
             .name("ᴅɪᴀᴍᴏɴᴅ sʜᴀʀᴅ")
+            .build();
+
+    public static final ItemStack BASE_PICKAXE = ItemBuilder.create(Material.WOODEN_PICKAXE, ItemRarity.COMMON)
+            .name("ʙᴀsᴇ pɪᴄᴀxᴇ")
+            .tool(ToolPropertiesRegistry.BASE_TOOL)
             .build();
 
 }

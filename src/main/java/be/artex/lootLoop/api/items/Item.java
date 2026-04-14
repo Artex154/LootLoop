@@ -38,7 +38,7 @@ public class Item {
         return itemID;
     }
 
-    public ItemStack getItemStack() {
+    public ItemStack asItemStack() {
         return stack.clone();
     }
 
@@ -72,7 +72,7 @@ public class Item {
             return null;
 
         for (Item item : REGISTERED_ITEMS) {
-            if (Objects.equals(item.getItemStack().getItemMeta(), stack.getItemMeta()))
+            if (Objects.equals(item.asItemStack().getItemMeta(), stack.getItemMeta()))
                 return item;
         }
 

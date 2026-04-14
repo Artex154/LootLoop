@@ -14,7 +14,10 @@ public class ItemRegistry {
     public static final Item AMETHYST_SHARD = registerSimpleItem("amethyst_shard", Stacks.AMETHYST_SHARD, Item.Properties.create().sellValue(105));
     public static final Item GOLD_NUGGET = registerSimpleItem("gold_nugget", Stacks.GOLD_NUGGET, Item.Properties.create().sellValue(7500));
     public static final Item IRON_NUGGET = registerSimpleItem("iron_nugget", Stacks.IRON_NUGGET, Item.Properties.create().sellValue(6000));
-    public static final Item DIAMOND_SHARD = registerSimpleItem("diamond_shard", Stacks.DIAMOND_SHARD, Item.Properties.create().sellValue(11500).combinePossibilities());
+    public static final Item DIAMOND_SHARD = registerSimpleItem("diamond_shard", Stacks.DIAMOND_SHARD, Item.Properties.create().sellValue(11500));
+
+    // TOOLS
+    public static final Item BASE_PICKAXE = registerSimpleItem("base_pickaxe", Stacks.BASE_PICKAXE, Item.Properties.create().tool(ToolPropertiesRegistry.BASE_TOOL));
 
     private static Item registerSimpleItem(String ID, ItemStack stack, Item.Properties properties) {
         Item item = new Item(ID, stack, properties);
@@ -32,7 +35,7 @@ public class ItemRegistry {
     }
 
     // call AFTER the initialize() method
-    public static void registerAllCombinePossibilities() {
+    public static void initializeAllCombinePossibilities() {
         CombinePossibilty.registerPossibility(new CombinePossibilty(IRON_NUGGET, RECOMBOBULATOR, GOLD_NUGGET));
     }
 }

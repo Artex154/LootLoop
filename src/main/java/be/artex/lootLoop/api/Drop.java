@@ -29,8 +29,8 @@ public class Drop {
     }
 
     public void drop(@NotNull Player player, double fortuneMultiplier) {
-        Component itemName = this.item.getItemStack().getItemMeta().hasCustomName()
-                ? this.item.getItemStack().getItemMeta().customName()
+        Component itemName = this.item.asItemStack().getItemMeta().hasCustomName()
+                ? this.item.asItemStack().getItemMeta().customName()
                 : Component.text("<null>");
 
         player.sendMessage(
@@ -40,7 +40,7 @@ public class Drop {
                         .append(Component.text(" (" + this.probabilty + "%).", NamedTextColor.GOLD))
         );
 
-        ItemStack stack = getItem().getItemStack();
+        ItemStack stack = getItem().asItemStack();
         applyFortuneMultiplier(stack, fortuneMultiplier);
 
         player.getInventory().addItem(stack);

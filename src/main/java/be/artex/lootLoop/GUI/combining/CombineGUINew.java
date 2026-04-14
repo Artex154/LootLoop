@@ -11,8 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
-
 public class CombineGUINew {
     private static final ChestGui GUI = new ChestGui(5, "Combine Items");
     private static boolean isInventorySetUp = false;
@@ -81,7 +79,7 @@ public class CombineGUINew {
             Item sItem = items[1];
 
             if (fItem.equals(firstItem) && sItem.equals(secondItem))
-                return possibilty.getResult().getItemStack();
+                return possibilty.getResult().asItemStack();
         }
 
         return Stacks.NO_RESULT;

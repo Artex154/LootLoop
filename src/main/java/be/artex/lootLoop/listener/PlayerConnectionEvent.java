@@ -2,6 +2,7 @@ package be.artex.lootLoop.listener;
 
 import be.artex.lootLoop.Statistics;
 import be.artex.lootLoop.Scoreboard;
+import be.artex.lootLoop.registry.ItemRegistry;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -50,6 +51,9 @@ public class PlayerConnectionEvent implements Listener {
         Scoreboard.updateBoard(board, player);
 
         boards.put(player.getUniqueId(), board);
+
+        if (!player.hasPlayedBefore())
+            player.give(ItemRegistry.BASE_PICKAXE.asItemStack());
     }
 
     @EventHandler

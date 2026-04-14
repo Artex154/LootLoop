@@ -5,6 +5,7 @@ import be.artex.lootLoop.command.Test;
 import be.artex.lootLoop.listener.*;
 import be.artex.lootLoop.registry.ItemRegistry;
 import be.artex.lootLoop.registry.MineralRegistry;
+import be.artex.lootLoop.registry.ToolPropertiesRegistry;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRules;
 import org.bukkit.World;
@@ -24,9 +25,10 @@ public final class LootLoop extends JavaPlugin {
         commandsSetup();
         listenersSetup();
 
+        ToolPropertiesRegistry.initialize();
         ItemRegistry.initialize();
-        ItemRegistry.registerAllCombinePossibilities();
-        MineralRegistry.register();
+        ItemRegistry.initializeAllCombinePossibilities();
+        MineralRegistry.initialize();
     }
 
     private void gameRulesSetup(World world) {

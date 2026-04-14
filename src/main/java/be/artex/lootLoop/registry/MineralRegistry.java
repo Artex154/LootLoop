@@ -14,6 +14,6 @@ public class MineralRegistry {
     public static final Mineral DIAMOND = Mineral.registerMineral(new Diamond());
     public static final Mineral EMERALD = Mineral.registerMineral(new Emerald());
 
-    public static void register() {
+    public static void initialize() {
     }
 }

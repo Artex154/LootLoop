@@ -6,6 +6,7 @@ import be.artex.lootLoop.Scoreboard;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,6 +21,9 @@ public class PlayerBlockEvent implements Listener {
         Block block = event.getBlock();
 
         event.setCancelled(true);
+
+        if (block.getType().equals(Material.BEDROCK))
+            return;
 
         Mineral mineral = Mineral.getMineralFromMaterial(block.getType());
 
